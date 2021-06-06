@@ -14,8 +14,10 @@
     margin-bottom: 100px;
 }
 
+
 .welcome-section
 .whoami,
+.static-text,
 .projects-initializer {
     font-size: 50px;
     text-shadow: 3px 2.5px 2px purple;
@@ -23,10 +25,53 @@
     margin-bottom: 20px;
 }
 
+@keyframes typing {
+
+    100% {
+        left: 0;
+        margin: 0 -35px 0 210px;
+    }
+}
 .welcome-section
-.whoami::first-letter {
+.whoami {
+    margin-left: -40px;
+}
+
+.welcome-section
+.welcome-wrapper {
+    display:flex;
+}
+
+.welcome-section
+.whoami li {
+    list-style: none;
+    position: relative;
+    top: 0;
+}
+
+.welcome-section
+.whoami li span {
+    position: relative;
+}
+
+
+.welcome-section
+.whoami li span::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-left: 2px solid white;
+    animation: typing 1.5s steps(7) infinite;
+}
+
+.welcome-section
+.static-text::first-letter {
     color: lightgreen;
     font-size: 60px;
+    display:inline;
 }
 
 .welcome-section
