@@ -35,6 +35,7 @@
 .welcome-section
 .whoami {
     margin-left: -40px;
+    font-weight: bold;
 }
 
 .welcome-section
@@ -72,6 +73,7 @@
     color: lightgreen;
     font-size: 60px;
     display:inline;
+    font-weight: bold;
 }
 
 .welcome-section
