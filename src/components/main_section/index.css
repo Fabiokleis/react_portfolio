@@ -1,0 +1,100 @@
+.main-section {
+    position: relative;
+    display: block;
+    margin-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 100px;
+}
+
+.middle-section {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.welcome-section
+.whoami,
+.projects-initializer {
+    font-size: 50px;
+    text-shadow: 3px 2.5px 2px purple;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.welcome-section
+.whoami::first-letter {
+    color: lightgreen;
+    font-size: 60px;
+}
+
+.welcome-section
+.welcome-text {
+    font-size: 35px;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 2px 1.5px 1px purple;
+    width: 60%;
+}
+
+.posts-section {
+    display:block;
+    width: 45%;
+    padding: 10px;
+}
+
+.posts-section 
+.posts-card {
+    display:block;
+    width: 100%;
+    height: max-content;
+    border-bottom: 2px solid white;
+}
+
+.posts-section 
+.posts-card 
+.posts-card-title,
+.posts-section 
+.posts-card 
+.posts-card-description {
+    padding: 5px;
+}
+
+.projects-section {
+    position: relative;
+    margin-top: 20px;
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.projects-section
+.projects-card {
+    position: relative;
+    display: flex;
+}
+
+.projects-section
+.projects-card 
+.projects-img {
+
+    width: 750px;
+    transition: all 0.4s;
+    transform: scale(0.95);
+}
+
+.projects-section
+.projects-card 
+.projects-img:hover {
+   transform: scale(1);
+}
+
+
+
+
+
+
+

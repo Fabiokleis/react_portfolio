@@ -1,3 +1,5 @@
+import React from 'react';
+import './App.css';
 import Header from './components/header/';
 import MainSection from './components/main_section';
 import Footer from './components/footer';

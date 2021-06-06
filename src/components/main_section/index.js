@@ -7,9 +7,16 @@ import ProjectsSection from './projects_section';
 export default function MainSection(props){
     return (
         <div className="main-section">
-            <WelcomeSection />
-            <PostsSection />
+            <div className="middle-section">
+                <WelcomeSection />
+
+                <PostsSection />
+            </div>
+             <h1 className="projects-initializer">
+                Projects
+             </h1>           
             <ProjectsSection />
+            
         </div>
     );
 }
