@@ -26,6 +26,7 @@ export default function WelcomeSection(props){
                {whoami}
             </h1>
             <div className="welcome-text">
+                <p>Application still under development, in the near future come again!</p>
                 <p>
                     developer and linux system administration enthusiast. Learning Nodejs, Postgresql, Mongodb and React;
                     visit my github!
