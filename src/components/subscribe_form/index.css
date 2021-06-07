@@ -1,0 +1,31 @@
+.subscribe-form {
+    margin: 20px;
+}
+.subscribe-btn {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid grey;
+    margin: 5px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.subscribe-btn:hover {
+    border: 1px solid lightgreen;
+    background-color:rgb(40, 94, 91);
+
+}
+
+.subscribe-input {
+    
+    box-sizing: border-box;
+    border:none;
+    border-radius: 5px;
+    width: 350px;
+    padding: 12px;
+}

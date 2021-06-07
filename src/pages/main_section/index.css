@@ -11,7 +11,6 @@
     width:95vw;
     display:flex;
     align-items: center;
-    margin-bottom:50px;
 }
 
 
@@ -24,7 +23,40 @@
     padding: 20px;
     margin-bottom: 20px;
 }
+@keyframes flying {
+    0% {
+        left:700px;
+        top: 300px;
+    }
+    25% {
+        top: 100px;
+        left: 600px;
 
+    }
+    50% {
+        top: 50px;
+        left: 500x;
+        
+    }
+    75% {
+        top: 200px;
+        left: 350px;
+        
+    }
+    100% {
+        top: 300px;
+        left: 700px;
+        
+    }
+}
+
+.boo {
+    position:absolute;
+    top: 50px;
+    left: 0px;
+    animation: flying 8s infinite;
+
+}
 @keyframes typing {
 
     100% {
@@ -61,7 +93,7 @@
 .whoami li span::after {
     content: "";
     position: absolute;
-    background-color:rgb(47, 23, 85);
+    background-color:black;
     left: 0;
     height: 100%;
     width: 100%;
@@ -82,20 +114,18 @@
 .welcome-section
 .welcome-text {
     font-size: 35px;
-    border: 2px solid white;
     padding: 20px;
     border-radius: 3px;
-    box-shadow: 2px 1.5px 1px purple;
     width:70%;
-    background-color:black;
 }
-
 .posts-section {
     margin-right:30px;
     border: 2px solid white;
+    border-radius: 5px;
     width:45vw;
     padding: 10px;
-    background-color:black;
+    background:linear-gradient(rgb(34, 24, 51), rgb(39, 66, 65));
+    
 }
 
 .posts-section 
@@ -120,6 +150,8 @@
     align-items: center;
     justify-content: space-between;
     position:relative;
+    
+    
 }
 
 .projects-section {
@@ -153,7 +185,7 @@
 .arrow-container-left {
     border-radius: 10px;
     position:absolute;
-    background-color: rgb(0,0,0,1);
+    
     z-index: 1;
     display:flex;
     align-items: center;
@@ -174,7 +206,7 @@
     background-color: rgb(0,0,0,0);
     color:white;
     border:none;
-    font-size: 35px;
+    font-size: 60px;
     font-weight: bold;
     
 }
@@ -190,7 +222,7 @@
 .arrow-container-right:hover,
 .arrow-container-left:hover{
     transform: scale(1);
-    background-color:black;
+    
     opacity: 1;
 }
 

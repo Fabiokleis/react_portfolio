@@ -3,7 +3,7 @@
     display: flex;
     position:relative;
     top:0;
-    background-color:black;
+    background:linear-gradient(rgb(47, 23, 85), rgb(40, 94, 91));
     justify-content: space-between;
     align-items: center;
     text-transform: none;
@@ -33,7 +33,7 @@
     display: inline;
 }
 .menu-nav .nav-li:hover{
-    text-shadow: 2px 1px 0.5px purple;
+    text-shadow: 1px 1px 1px lightgreen;
     font-weight: bold;
 }
 
@@ -73,6 +73,7 @@
 
 .header-login
 .header-button:hover {
-    border: 1px solid lightgreen;     
+    border: 1px solid lightgreen;
+    background-color:rgb(40, 94, 91);
 }
 

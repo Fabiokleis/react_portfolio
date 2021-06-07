@@ -22,19 +22,19 @@ function App() {
                     <CardSection />
                 </Route>
 
-                <Route path="/projects">
+                <Route path="/projects/:id">
                     <Projects />
                 </Route>
 
-                <Route path="/contact">
+                <Route exact path="/contact">
                     <Contact />
                 </Route>
 
-                <Route path="/signin">
+                <Route exact path="/signin">
                     <Signin />
                 </Route>
 
-                <Route path="/signup">
+                <Route exact path="/signup">
                     <Signup />
                 </Route>
 

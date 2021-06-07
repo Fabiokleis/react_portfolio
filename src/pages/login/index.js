@@ -2,13 +2,27 @@ import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
+import './index.css';
+
 export default function Signin(props){
 
     return (
         <>
             <Header show={false} />
+            <h1 className="title-center">loggin your account</h1>
+            
             <div className="signin-section">
-                <h1>sign in section</h1>
+            
+                <form className="signin-form">
+                    
+                    
+                    <label for="email"  className="signin-label">Email address</label>
+                    <input name="email" id="email"className="signin-input" type="email"></input>
+                    <label for="password" className="signin-label">Password</label>
+                    <input name="password" id="password" className="signin-input" type="password"></input>
+                    <button className="signin-btn" type="">Sign in</button>
+                </form>
+                
             </div>
             <Footer />
         </>
