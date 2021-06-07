@@ -1,38 +1,75 @@
 .header {
     font-size: 25px;
     display: flex;
-    padding: 10px;
+    padding: 0 10px;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
 }
-
 
 .header-menu {
     transition: all 0.3s;
     padding: 10px;
     border-radius: 5px;
-}
-.header-menu:hover {
-    background-color: grey;
+    position: relative;
 }
 
+
+
 .menu-nav {
+    transition: all 0.3s;
     list-style-type: none;
+    position: absolute;
+    z-index: 1;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    box-shadow: 2px 1.5px 1px lightgreen;
+    display: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left:30px;
+}
+
+.menu-nav .nav-li {
+    padding: 8px;
+    transition: all 0.3s;
+}
+.menu-nav .nav-li:hover{
+    text-shadow: 2px 1px 0.5px purple;
+    border-left: 2px solid lightgreen;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .header-login
-.header-button {
+.header-button{
    font-size: 20px; 
    color: white;
-   border: none;
    border-radius: 5px;
+   margin-left: 10px;
    padding:10px;
-   margin: 5px 5px 5px 0px;
-   transition: all 0.4s;
+   transition: all 0.3s;
    background-color: rgba(0,0,0,0);
+   border: 1px solid grey;
+}
+.drop-button {
+    font-size: 25px;
+    color: white;
+    transition: all 0.3s;
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+.drop-button:hover {
+    text-shadow: 1px 1px 0.5px lightgreen;
+    font-weight: bold;
+}
+
+.header-menu:hover .menu-nav {
+    display:block;
 }
 
 .header-login
 .header-button:hover {
-    background-color: grey;
+    border: 1px solid lightgreen;      
 }
+

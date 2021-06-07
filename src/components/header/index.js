@@ -8,8 +8,8 @@ export default function Header(props){
         <div className="header">
             <Menu />
             <div className="header-login">
-                <button className="header-button">sigin</button>
-                <button className="header-button">sigup</button>
+                <button className="header-button">Sign in</button>
+                <button className="header-button">Sign up</button>
             </div>
         </div>
     );
