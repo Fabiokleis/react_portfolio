@@ -1,10 +1,11 @@
 .header {
     font-size: 25px;
     display: flex;
-    padding: 0 20px;
+    position:relative;
+    top:0;
+    background-color:black;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
     text-transform: none;
     margin-bottom: 50px;
 }
@@ -36,13 +37,19 @@
     font-weight: bold;
 }
 
+.header-login {
+    margin-right: 20px;
+
+
+}
+
 .header-login
 .header-button{
    font-size: 20px; 
    color: white;
    border-radius: 5px;
-   margin-left: 10px;
-   padding:10px;
+   padding:5px;
+   margin: 0 5px;
    transition: all 0.3s;
    background-color: rgba(0,0,0,0);
    border: 1px solid grey;

@@ -1,22 +1,17 @@
 .footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     display:flex;
     justify-content: space-around;
-    background: lightgrey;
-    color: black;
-    font-size: 25px;
-    font-weight: bold;
-    color: black;
-
+    background-color:black;
+    padding: 10px 0;
+    font-size: 20px;
 }
 .container {
     position: absolute;
     width: 100%;
-    bottom: 0; 
-    display:block;
-
+    bottom: 0;
 }
 .footer .footer-links {
     list-style: none;
@@ -24,4 +19,9 @@
 }
 
 .footer .footer-links .footer-li {
+    
+}
+.footer .footer-links .footer-li:hover{
+    font-weight: bold;
+    text-shadow: 2px 1px 0.5px lightgreen;
 }

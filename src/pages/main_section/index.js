@@ -18,7 +18,7 @@ export default function MainSection(props){
             </div>
              <h1 className="projects-initializer">
                 Projects
-             </h1>           
+             </h1>
             <ProjectsSection />
             
         </div>
