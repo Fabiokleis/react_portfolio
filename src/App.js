@@ -9,33 +9,38 @@ import Footer from './components/footer';
 function App() {
   return (
     <Router>
-      <Switch>
         <div className="App">
             <Header />
 
+            <Switch>
+      
+                <Route component={MainSection} exact path="/" />
 
-            <Route path="/projects">
-                <div>Projects route</div>
-            </Route>
+                <Route path="/projects">
+                    <div>Projects route</div>
+                </Route>
 
-            <Route path="/Contact">
-                <div>Contact route</div>
-            </Route>
+                <Route path="/contact">
+                    <div>Contact route</div>
+                </Route>
 
-            <Route path="/sigin">
-                <div>Sigin route</div>
-            </Route>
+                <Route path="/signin">
+                    <div>Signin route</div>
+                </Route>
 
-            <Route path="/sigup">
-                <div>Siguproute</div>
-            </Route>
+                <Route path="/signup">
+                    <div>Sign uproute</div>
+                </Route>
 
-            <Route path="/">
-                <MainSection />
-            </Route>
+                <Route path="*">
+                    <div>not found 404</div>
+                </Route>
+
+            </Switch>
+
             <Footer />
         </div>
-     </Switch>
+
     </Router>
   );
 }
