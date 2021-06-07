@@ -1,35 +1,41 @@
 import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Header from './components/header/';
-import MainSection from './components/main_section';
-import Footer from './components/footer';
-
+import MainSection from './pages/main_section';
+import Projects from './pages/projects';
+import Contact from './pages/contact';
+import Signin from './pages/login';
+import Signup from './pages/register';
+import CardSection from './pages/card_section'
 
 function App() {
   return (
     <Router>
         <div className="App">
-            <Header />
 
             <Switch>
       
-                <Route component={MainSection} exact path="/" />
+                <Route exact path="/">
+                    <MainSection />
+                </Route>
+                <Route path="/cardsection/:id">
+                    <CardSection />
+                </Route>
 
                 <Route path="/projects">
-                    <div>Projects route</div>
+                    <Projects />
                 </Route>
 
                 <Route path="/contact">
-                    <div>Contact route</div>
+                    <Contact />
                 </Route>
 
                 <Route path="/signin">
-                    <div>Signin route</div>
+                    <Signin />
                 </Route>
 
                 <Route path="/signup">
-                    <div>Sign uproute</div>
+                    <Signup />
                 </Route>
 
                 <Route path="*">
@@ -38,7 +44,6 @@ function App() {
 
             </Switch>
 
-            <Footer />
         </div>
 
     </Router>

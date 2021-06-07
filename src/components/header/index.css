@@ -1,7 +1,7 @@
 .header {
     font-size: 25px;
     display: flex;
-    padding: 0 10px;
+    padding: 0 20px;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
@@ -9,6 +9,9 @@
     margin-bottom: 50px;
 }
 
+.hidden {
+    display: none;
+}
 .header-menu {
     transition: all 0.3s;
     padding: 10px;

@@ -5,7 +5,7 @@ export default function Menu(props){
     
     return (
         <div className="header-menu">
-            <button class="drop-button"><Link to="/" style={{ textDecoration: 'none', color: 'white'}}>*_ Menu</Link></button>
+            <button className="drop-button"><Link to="/" style={{ textDecoration: 'none', color: 'white'}}>*_ Menu</Link></button>
             <ul className="menu-nav">
                <li className="nav-li">
                     <Link to="/projects" style={{ textDecoration: 'none', color: 'white'}}>Projects</Link>
