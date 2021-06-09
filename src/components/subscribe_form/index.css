@@ -6,26 +6,24 @@
     box-sizing: border-box;
     border: 1px solid grey;
     margin: 5px;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0.8);
     color: white;
     border-radius: 5px;
     font-size: 15px;
-    font-weight: bold;
     transition: all 0.4s;
     cursor: pointer;
 }
 
 .subscribe-btn:hover {
     border: 1px solid lightgreen;
-    background-color:rgb(40, 94, 91);
+    background-color:rgb(40, 145, 153);
 
 }
 
 .subscribe-input {
-    
-    box-sizing: border-box;
+    box-sizing: content-box;
     border:none;
     border-radius: 5px;
     width: 350px;
-    padding: 12px;
+    padding: 10px;
 }

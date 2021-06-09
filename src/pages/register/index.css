@@ -2,7 +2,7 @@
     text-align:center;
 }
 .signup-label {
-    font-size: 15px;
+    font-size: 20px;
     margin:20px;
 }
 .signup-section {
@@ -12,19 +12,22 @@
     justify-content: center;
 }
 .signup-input {
+    font-size: 15px;
+    background: rgba(0, 0, 0, 0.753);
     display:block;
     padding: 5px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 5px;
     border:none;
     width:300px;
     box-sizing: border-box;
+    color:white;
 }
 .signup-btn {
-    font-size: 18px;
+    font-size: 20px;
     width:300px;
     padding: 5px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 5px;
     border: 1px solid grey;
     color: white;

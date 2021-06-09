@@ -4,6 +4,7 @@
     padding-left: 30px;
     padding-right: 30px;
     width:100%;
+    margin-top: 100px;
 }
 
 .middle-section {
@@ -19,68 +20,49 @@
 .static-text,
 .projects-initializer {
     font-size: 50px;
-    text-shadow: 3px 2.5px 2px purple;
     padding: 20px;
     margin-bottom: 20px;
-}
-@keyframes flying {
-    0% {
-        left:700px;
-        top: 300px;
-    }
-    25% {
-        top: 100px;
-        left: 600px;
-
-    }
-    50% {
-        top: 50px;
-        left: 500x;
-        
-    }
-    75% {
-        top: 200px;
-        left: 350px;
-        
-    }
-    100% {
-        top: 300px;
-        left: 700px;
-        
-    }
+    box-sizing:content-box;
 }
 
-.boo {
-    position:absolute;
-    top: 50px;
-    left: 0px;
-    animation: flying 8s infinite;
-
-}
 @keyframes typing {
 
     100% {
-        left: 0;
-        margin: 0 -35px 0 210px;
+        left:100%;
+        margin: 0 -30px 0 30px;
     }
 }
-.welcome-section
+
+@keyframes slide {
+    100%{
+        top: -420px;
+    }
+}
+
 .whoami {
-    margin-left: -40px;
+
+    line-height:105px;
+    margin-left: -30px;
     font-weight: bold;
+    position: relative;
+    overflow:hidden;
+    height:60px;
+    top:-30px;
 }
 
 .welcome-section
 .welcome-wrapper {
     display:flex;
-    
 }
 
 .welcome-section
 .whoami li {
+    
     list-style: none;
     position: relative;
-    top: 0;
+    top:0;
+    animation: slide 6s steps(4) infinite;
+    animation-delay: 2s;
 }
 
 .welcome-section
@@ -93,13 +75,14 @@
 .whoami li span::after {
     content: "";
     position: absolute;
-    background-color:black;
+    background-color:rgb(27, 139, 167);
     left: 0;
+    top:0;
     height: 100%;
     width: 100%;
     border-left: 2px solid white;
     animation: typing 1.5s steps(10) infinite;
-    animation-delay: 1s;
+    animation-delay: 2s;
 }
 
 .welcome-section
@@ -108,7 +91,7 @@
     font-size: 60px;
     display:inline;
     font-weight: bold;
-    
+    line-height: 30px;
 }
 
 .welcome-section
@@ -120,12 +103,11 @@
 }
 .posts-section {
     margin-right:30px;
-    border: 2px solid white;
+    border: 3px solid white;
     border-radius: 5px;
-    width:45vw;
+    width:50%;
     padding: 10px;
-    background:linear-gradient(rgb(34, 24, 51), rgb(39, 66, 65));
-    
+    background:rgba(0, 0, 0, 0.5); 
 }
 
 .posts-section 
@@ -133,7 +115,7 @@
     display:block;
     width: 100%;
     height: max-content;
-    border-bottom: 2px solid white;
+    border-bottom: 3px solid white;
 }
 
 .posts-section 

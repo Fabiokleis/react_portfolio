@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
 }
 .App {
-    background-color: black;
+    background: linear-gradient(rgb(27, 139, 167),90%,rgb(12, 17, 37));
     width: 100vw;
     height: 100vw;
     position: absolute;

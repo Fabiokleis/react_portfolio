@@ -15,11 +15,11 @@ export default function Signup(props){
                 <form className="signup-form">
                     
                     
-                    <label rel="name" className="signup-label">Username</label>
+                    <label htmlFor="name" className="signup-label">Username</label>
                     <input name="name" id="name" className="signup-input" type="text"></input>
-                    <label for="email"  className="signup-label">Email address</label>
+                    <label htmlFor="email"  className="signup-label">Email address</label>
                     <input name="email" id="email"className="signup-input" type="email"></input>
-                    <label for="password" className="signup-label">Password</label>
+                    <label htmlFor="password" className="signup-label">Password</label>
                     <input name="password" id="password" className="signup-input" type="password"></input>
                     <button className="signup-btn" type="">Sign up</button>
                 </form>

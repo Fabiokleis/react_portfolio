@@ -16,9 +16,9 @@ export default function Signin(props){
                 <form className="signin-form">
                     
                     
-                    <label for="email"  className="signin-label">Email address</label>
+                    <label htmtFor="email"  className="signin-label">Email address</label>
                     <input name="email" id="email"className="signin-input" type="email"></input>
-                    <label for="password" className="signin-label">Password</label>
+                    <label htmlFor="password" className="signin-label">Password</label>
                     <input name="password" id="password" className="signin-input" type="password"></input>
                     <button className="signin-btn" type="">Sign in</button>
                 </form>

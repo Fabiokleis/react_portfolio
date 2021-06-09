@@ -4,9 +4,10 @@
     width: 100%;
     display:flex;
     justify-content: space-around;
-    background:linear-gradient(rgb(47, 23, 85), rgb(40, 94, 91));
+    background:rgba(0,0,0,0.6);
     padding: 10px 0;
     font-size: 20px;
+    border-top:1px solid rgba(255, 255, 255, 0.445);
 }
 .container {
     position: absolute;
@@ -17,9 +18,5 @@
     list-style: none;
     font-weight: bold;
     display:block; 
-}
-
-.footer .footer-links .footer-li:hover{
-    
-    text-shadow: 1px 1px 1px lightgreen;
+    transition:all 0.3s;
 }
