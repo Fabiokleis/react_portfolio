@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.projects-section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.project-container {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+.project-title {
+    margin: 30px;
+    font-size: 25px;
+}
+.project-view {
+    border-radius: 5px;
+    width: 75%;
+    box-shadow: 1px 1px 4px white;
+    margin-bottom: 30px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.project-view:hover {
+    transform: scale(1.02);
+}
+.description-container {
+    
+    width: 75%;
+    height: max-content;
+    margin: auto;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px white;
+    text-align: left;
+}
+.description-container p {
+    padding: 10px;
+}

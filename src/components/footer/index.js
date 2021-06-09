@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-import {Link} from 'react-router-dom';
 
 export default function Footer(props){
 
@@ -11,13 +10,13 @@ export default function Footer(props){
                 
                 <ul className="footer-links">
                     <li className="footer-li">
-                        <Link to="https://github.com/Fabiokleis" style={{ textDecoration: 'none', color: 'white'}}>GitHub</Link>
+                        <a href="https://github.com/Fabiokleis" style={{ textDecoration: 'none', color: 'white'}}>GitHub</a>
                     </li>
                     <li className="footer-li">
-                       <Link to="https://twitter.com/FabioKleis" style={{ textDecoration: 'none', color: 'white'}}>Twitter</Link>
+                       <a href="https://twitter.com/FabioKleis" style={{ textDecoration: 'none', color: 'white'}}>Twitter</a>
                     </li>
                     <li className="footer-li">
-                        <Link to="https://instagram.com/fabiokleis" style={{ textDecoration: 'none', color: 'white'}}>Instagram</Link>
+                        <a href="https://instagram.com/fabiokleis" style={{ textDecoration: 'none', color: 'white'}}>Instagram</a>
                     </li>
                 </ul>
 

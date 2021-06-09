@@ -18,9 +18,10 @@ function App() {
                     <MainSection />
                 </Route>
                 
-                <Route path="/cardsection/:id">
+                <Route path="/posts">
                     <CardSection />
                 </Route>
+
 
                 <Route exact path="/projects">
                     <Projects />

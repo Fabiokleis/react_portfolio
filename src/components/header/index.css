@@ -24,11 +24,13 @@
 .header-menu {
     transition: all 0.3s;
     border-radius: 5px;
+    transition: all 0.3s;
 }
 .arrow {
     content: url('./chevron-down.svg');
     padding:2px;
     opacity: 0.8;
+    transition: all 0.3s;
     transform:translateY(25%);
 }
 
@@ -41,6 +43,7 @@
     text-align: left;
     position:relative;
     left:0;
+    transition: all 0.3s;
 }
 
 .menu-nav .nav-li {
@@ -82,8 +85,11 @@
     position: absolute;
     background-color: black;
     transition: all 0.3s;
-
 }
+.menu-wrapper {
+    transition: all 0.3s;
+}
+
 .button:hover {
     border: 1px solid lightgreen;
     background-color:rgb(40, 94, 91);

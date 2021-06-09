@@ -154,6 +154,8 @@
     width:700px;
     transition: all 0.4s;
     transform: scale(0.95);
+    border-radius: 5px;
+    box-shadow: 1px 0.5px 3px white;
 }
 
 .projects-section
