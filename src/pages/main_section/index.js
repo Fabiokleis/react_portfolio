@@ -9,7 +9,7 @@ import Footer from '../../components/footer';
 export default function MainSection(props){
     return (
         <>
-        <Header show={true} />
+        <Header signin={true} signup={true} />
         <div className="main-section">
             <div><h1>in the near future come again! application in development</h1></div>
             <div className="middle-section">

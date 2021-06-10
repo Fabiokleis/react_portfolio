@@ -1,14 +1,13 @@
 import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-
 import './index.css';
 
 export default function Signin(props){
 
     return (
         <>
-            <Header show={false} />
+            <Header signup={true} />
             <h1 className="title-center">loggin your account</h1>
             
             <div className="signin-section">
@@ -22,8 +21,9 @@ export default function Signin(props){
                     <input name="password" id="password" className="signin-input" type="password"></input>
                     <button className="signin-btn" type="submit">Sign in</button>
                 </form>
-                
+
             </div>
+            
             <Footer />
         </>
     );

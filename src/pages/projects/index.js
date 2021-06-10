@@ -8,7 +8,7 @@ export default function Projects(props){
 
     return (
         <>
-            <Header show={true} />
+            <Header signin={true} signup={true} />
 
             <h1>projects section</h1>    
             <div className="projects-section">
