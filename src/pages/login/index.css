@@ -1,13 +1,22 @@
-.title-center{
-    text-align:center;
-    margin-top:100px;
+.info-container {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+.notification-msg {
+    margin: 20px;
+    color: red;
+    background-color: #FFD2D2;
+    padding: 5px;
+    width: max-content;
+    border-radius: 5px;
 }
 .signin-label {
     font-size: 18px;
     margin:20px;
 }
 .signin-section {
-    margin:100px;
+    margin:50px;
     display:flex;
     align-items: center;
     justify-content: center;

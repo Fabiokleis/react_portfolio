@@ -6,11 +6,10 @@ import {useDispatch} from 'react-redux';
 import {createUser} from '../../actions/userActions';
 
 
-
 export default function Signup(){
 
     const dispatch = useDispatch();
-    const [msg, setMsg] = useState();
+    const [msg, setMsg] = useState(null);
 
     function handlerSub(e){
         e.preventDefault();
@@ -18,7 +17,6 @@ export default function Signup(){
         const user = [];
         for(let i = 0; i < 3; i++){
             user.push(e.target.elements[i].value);
-            console.log(user);
         }
         const [name, email, password] = user;
 
@@ -42,7 +40,9 @@ export default function Signup(){
                 }else if(res.status === 400){
                     return res.json();
                 }
-            }).then((data) => setMsg(data.message)).catch(err => err);
+            }).then((data) => {
+                setMsg(data.message);
+            }).catch(err => err);
     }
 
     return (
@@ -50,7 +50,7 @@ export default function Signup(){
             <Header signin={true} />
             <div className="info-container">
                 <h1 className="title-center">Create your account</h1>
-                <h3 className="notification-msg">{msg}</h3>
+                <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
             </div>
             <div className="signup-section">
 
@@ -63,8 +63,6 @@ export default function Signup(){
                     <input required name="password" id="password" className="signup-input" type="password"></input>
                     <button  className="signup-btn" type="submit">Sign up</button>
                 </form>
-
-                
             </div>
 
             <Footer />
