@@ -2,4 +2,8 @@
 
 ### Front-end
 
- * lets create
+ * React
+ * react-redux
+ * react-router-dom
+ * jwt-decode
+
