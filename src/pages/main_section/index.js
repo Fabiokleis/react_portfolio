@@ -10,18 +10,20 @@ export default function MainSection(props){
     return (
         <>
         <Header signin={true} signup={true} />
-        <div className="main-section">
-            <div><h1>in the near future come again! application in development</h1></div>
-            <div className="middle-section">
-                <WelcomeSection />
-                {/* <PostsSection /> */}
+        <main className="section-container">
+            <div className="main-section">
+                <div><h1>in the near future come again! application in development</h1></div>
+                <div className="middle-section">
+                    <WelcomeSection />
+                    {/* <PostsSection /> */}
+                </div>
+                <h1 className="projects-initializer">
+                    Projects
+                </h1>
+                <ProjectsSection />
+                
             </div>
-             <h1 className="projects-initializer">
-                Projects
-             </h1>
-            <ProjectsSection />
-            
-        </div>
+        </main>
         <Footer />
         </>
     );

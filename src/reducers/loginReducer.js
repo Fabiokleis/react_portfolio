@@ -1,13 +1,11 @@
-export default function loginReducer(state=false, action){
+export default function loginReducer(state=null, action){
     switch(action.type){
         case 'LOGIN_USER':
-            if(action.token){
+            if(action.payload.id){
                 return state = true;
             }
             return state;
         case 'LOGOUT_USER':
-            // todo:
-            // implement logout ...
             return state = false;
         default:
             return state;

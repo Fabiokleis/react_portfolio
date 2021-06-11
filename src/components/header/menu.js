@@ -10,12 +10,10 @@ export default function Menu(props){
                 <button className="drop-button"><Link to="/" style={{ textDecoration: 'none', color: 'white'}}>Menu </Link></button>
                 <img className="arrow" src="" alt="arrow-down" />
                 <ul className="menu-nav">
-                    <li className="nav-li">
-                        <Link to="/projects" style={{ textDecoration: 'none', color: 'white'}}>Projects</Link>
-                    </li>
-                    <li className="nav-li">
-                        <Link to="/posts" style={{ textDecoration: 'none', color: 'white'}}>Posts</Link>
-                    </li>
+                <Link to="/projects" style={{ textDecoration: 'none', color: 'white'}}><li className="nav-li">Projects</li>
+                    </Link>
+                <Link to="/posts" style={{ textDecoration: 'none', color: 'white'}}><li className="nav-li">Posts</li>
+                </Link>
                 </ul>
             </div>
         </div>

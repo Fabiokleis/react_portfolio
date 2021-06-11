@@ -4,10 +4,8 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../actions/userActions';
-
 import './index.css';
 
-// implement a function to save user data in localStorage;
 
 export default function Signin(props){
     const dispatch = useDispatch();
@@ -25,6 +23,7 @@ export default function Signin(props){
 
         loginUserRequest({email, password}, e.target.action);
     }
+
 
     function loginUserRequest(data,url){
 
@@ -46,7 +45,6 @@ export default function Signin(props){
                 }else{
                     const user = jwt(data);
                     user.token = data;
-                    console.log(user);
                     dispatch(loginUser(user));
                 }
             }).catch(err => err);
@@ -54,24 +52,25 @@ export default function Signin(props){
 
     return (
         <>
-            <Header signup={true} />
-            <div className="info-container">
-                <h1 className="title-center">Loggin your account</h1>
-                <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
-            </div>
-            <div className="signin-section">
-            
-                <form onSubmit={(e) => handlerSub(e)} method="POST" action="http://127.0.0.1:3001/users/login" className="signin-form">
+            <Header />
+            <main className="section-container">
+                <div className="info-container">
+                    <h1 className="title-center">Loggin your account</h1>
+                    <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
+                </div>
+                <div className="signin-section">
+                
+                    <form onSubmit={(e) => handlerSub(e)} method="POST" action="http://127.0.0.1:3001/users/login" className="signin-form">
 
-                    <label className="signin-label">Email address <span className="star">*</span></label>
-                    <input required name="email" id="email"className="signin-input" type="email"></input>
-                    <label className="signin-label">Password <span className="star">*</span></label>
-                    <input required name="password" id="password" className="signin-input" type="password"></input>
-                    <button className="signin-btn" type="submit">Sign in</button>
-                </form>
+                        <label className="signin-label">Email address <span className="star">*</span></label>
+                        <input required name="email" id="email"className="signin-input" type="email"></input>
+                        <label className="signin-label">Password <span className="star">*</span></label>
+                        <input required name="password" id="password" className="signin-input" type="password"></input>
+                        <button className="signin-btn" type="submit">Sign in</button>
+                    </form>
 
-            </div>
-            
+                </div>
+            </main>
             <Footer />
         </>
     );

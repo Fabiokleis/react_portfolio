@@ -2,10 +2,12 @@
     margin: 0;
     padding: 0;
 }
-body {
+.App {
     overflow-x: hidden;
-    background: linear-gradient(rgb(27, 139, 167),90%,rgb(12, 17, 37));
+    background:linear-gradient(mediumslateblue, rgb(0, 0, 0));
     color: white;
+    display:flex;
+    height: 100vh;
+    flex-direction: column;
+    width: 100vw;
 }
-
-

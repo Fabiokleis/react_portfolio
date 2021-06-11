@@ -10,6 +10,8 @@ import Projects from './pages/projects';
 import Signin from './pages/login';
 import Signup from './pages/register';
 import CardSection from './pages/card_section'
+import UnLoggedRoute from './components/unLoggedRoute';
+
 
 const combinedReducers = combineReducers(
     {
@@ -19,7 +21,25 @@ const combinedReducers = combineReducers(
     }
 )
 
-const store = createStore(combinedReducers);
+function getLoginState(){
+    const saved_state = JSON.parse(localStorage.getItem('user_state'));
+    if(saved_state){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+function setLoginState(user){
+    localStorage.setItem('user_state', JSON.stringify(user));
+}
+
+const store = createStore(combinedReducers, {login: getLoginState()});
+
+store.subscribe(() => {
+    setLoginState(store.getState().login);
+})
+
 
 function App() {
   return (
@@ -37,7 +57,6 @@ function App() {
                     <CardSection />
                 </Route>
 
-
                 <Route exact path="/projects">
                     <Projects />
                 </Route>
@@ -45,13 +64,13 @@ function App() {
                     <Projects />
                 </Route>
 
-                <Route exact path="/signin">
+                <UnLoggedRoute exact path="/signin">
                     <Signin />
-                </Route>
+                </UnLoggedRoute>
 
-                <Route exact path="/signup">
+                <UnLoggedRoute exact path="/signup">
                     <Signup />
-                </Route>
+                </UnLoggedRoute>
 
                 <Route path="*">
                     <div>not found 404</div>

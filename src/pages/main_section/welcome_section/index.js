@@ -7,7 +7,7 @@ export default function WelcomeSection(props){
     return (
         <div className="welcome-section">
             <div className="welcome-wrapper">
-                <div className="static-text">_</div>
+                <div className="static-text">$_</div>
                 <ul className="whoami">
                         <li><span>Javascript</span></li>
                         <li><span>Nodejs</span></li>

@@ -1,3 +1,7 @@
+.section-container {
+    flex: 1 0 auto;
+}
+
 .info-container {
     display:flex;
     flex-direction: column;
@@ -11,6 +15,7 @@
     width: max-content;
     border-radius: 5px;
 }
+
 .signin-label {
     font-size: 18px;
     margin:20px;

@@ -3,7 +3,7 @@ import './index.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import {useDispatch} from 'react-redux';
-import {createUser} from '../../actions/userActions';
+import {createUser, loginUser} from '../../actions/userActions';
 
 
 export default function Signup(){
@@ -20,8 +20,6 @@ export default function Signup(){
         }
         const [name, email, password] = user;
 
-
-        dispatch(createUser({name, email, password}));
         createUserRequest({name, email, password}, e.target.action);
 
     }
@@ -34,38 +32,47 @@ export default function Signup(){
                 method: 'POST',
                 body: JSON.stringify(data)
             }).then((res) => {
-                console.log(res);
-                if(res.status === 201){
 
+                if(res.status === 201){
+                    return res.json();
                 }else if(res.status === 400){
                     return res.json();
                 }
             }).then((data) => {
-                setMsg(data.message);
+                if(data.message){
+                    setMsg(data.message);
+                }else{
+                    dispatch(createUser(data[0]));
+                    dispatch(loginUser(data[0]));
+                }
             }).catch(err => err);
     }
+
+
 
     return (
         <>
             <Header signin={true} />
-            <div className="info-container">
-                <h1 className="title-center">Create your account</h1>
-                <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
-            </div>
-            <div className="signup-section">
+            <main className="section-container">
+                <div className="info-container">
+                    <h1 className="title-center">Create your account</h1>
+                    <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
+                </div>
+                <div className="signup-section">
 
-                <form method="POST" onSubmit={(e) => handlerSub(e)} action="http://127.0.0.1:3001/users" className="signup-form">
-                    <label  className="signup-label">Username <span className="star">*</span></label>
-                    <input required name="name" id="name" className="signup-input" type="text" ></input>
-                    <label  className="signup-label">Email address <span className="star">*</span></label>
-                    <input required name="email" id="email"className="signup-input" type="email" ></input>
-                    <label className="signup-label">Password <span className="star">*</span></label>
-                    <input required name="password" id="password" className="signup-input" type="password"></input>
-                    <button  className="signup-btn" type="submit">Sign up</button>
-                </form>
-            </div>
-
+                    <form method="POST" onSubmit={(e) => handlerSub(e)} action="http://127.0.0.1:3001/users" className="signup-form">
+                        <label  className="signup-label">Username <span className="star">*</span></label>
+                        <input required name="name" id="name" className="signup-input" type="text" ></input>
+                        <label  className="signup-label">Email address <span className="star">*</span></label>
+                        <input required name="email" id="email"className="signup-input" type="email" ></input>
+                        <label className="signup-label">Password <span className="star">*</span></label>
+                        <input required name="password" id="password" className="signup-input" type="password"></input>
+                        <button  className="signup-btn" type="submit">Sign up</button>
+                    </form>
+                </div>
+            </main>
             <Footer />
+        
         </>
     );
 }

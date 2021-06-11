@@ -1,3 +1,7 @@
+.section-container {
+    flex: 1 0 auto;
+}
+
 .card-section {
     display:block;
     margin-top: 50px;

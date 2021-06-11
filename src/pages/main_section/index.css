@@ -1,3 +1,8 @@
+.section-container {
+    flex: 1 0 auto;
+    margin-bottom: 100px;
+}
+
 .main-section {
     position: relative;
     display: block;
@@ -46,13 +51,23 @@
     font-weight: bold;
     position: relative;
     overflow:hidden;
-    height:60px;
+    height:65px;
     top:-30px;
 }
 
 .welcome-section
 .welcome-wrapper {
+    margin-top: 50px;
     display:flex;
+    justify-content: center;
+    align-items:center;
+    background-color:rgb(34, 27, 63);
+    width: max-content;
+    border: 2px solid grey;
+    box-shadow: 1px 0.5px 3px white;
+    height:85px;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .welcome-section
@@ -75,12 +90,12 @@
 .whoami li span::after {
     content: "";
     position: absolute;
-    background-color:rgb(27, 139, 167);
+    background-color:rgb(34, 27, 63);
     left: 0;
     top:0;
     height: 100%;
     width: 100%;
-    border-left: 2px solid white;
+    border-left: 2px solid lightgreen;
     animation: typing 1.5s steps(10) infinite;
     animation-delay: 2s;
 }
@@ -91,7 +106,6 @@
     font-size: 60px;
     display:inline;
     font-weight: bold;
-    line-height: 30px;
 }
 
 .welcome-section

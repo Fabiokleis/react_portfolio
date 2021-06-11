@@ -5,3 +5,7 @@ export function createUser(user){
 export function loginUser(user){
     return {type: 'LOGIN_USER', payload: user};
 }
+
+export function logOutUser(){
+    return {type: 'LOGOUT_USER'};
+}

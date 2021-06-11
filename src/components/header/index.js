@@ -8,7 +8,7 @@ export default function Header(props){
     return (
         <div className="header"> 
             <Menu />
-            <HeaderLogin signin={props.signin} signup={props.signup}/>
+            <HeaderLogin />
        </div>
     );
 }
