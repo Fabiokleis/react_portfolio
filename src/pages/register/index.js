@@ -31,14 +31,7 @@ export default function Signup(){
                 headers: {'Content-Type': 'application/json'},
                 method: 'POST',
                 body: JSON.stringify(data)
-            }).then((res) => {
-
-                if(res.status === 201){
-                    return res.json();
-                }else if(res.status === 400){
-                    return res.json();
-                }
-            }).then((data) => {
+            }).then((res) => res.json()).then((data) => {
                 if(data.message){
                     setMsg(data.message);
                 }else{
