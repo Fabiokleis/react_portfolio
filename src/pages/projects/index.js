@@ -8,7 +8,7 @@ export default function Projects(props){
 
     return (
         <>
-            <Header signin={true} signup={true} />
+            <Header />
             <main className="section-container">
                 <h1>projects section</h1>    
                 <div className="projects-section">

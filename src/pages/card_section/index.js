@@ -8,7 +8,7 @@ export default function CardSection(props){
     
     return (
         <>
-            <Header signin={true} signup={true} />
+            <Header />
             <main className="section-container">
                 <h1>Posts</h1>
                 <div className="card-section">

@@ -45,7 +45,7 @@ export default function Signup(){
 
     return (
         <>
-            <Header signin={true} />
+            <Header />
             <main className="section-container">
                 <div className="info-container">
                     <h1 className="title-center">Create your account</h1>

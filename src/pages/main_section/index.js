@@ -9,7 +9,7 @@ import Footer from '../../components/footer';
 export default function MainSection(props){
     return (
         <>
-        <Header signin={true} signup={true} />
+        <Header />
         <main className="section-container">
             <div className="main-section">
                 <div><h1>in the near future come again! application in development</h1></div>
