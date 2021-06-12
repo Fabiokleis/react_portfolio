@@ -34,6 +34,7 @@ export default function Signin(props){
                 body: JSON.stringify(data)
             }).then((res) => {
                 if(res.status === 200){
+                    console.log(res.headers.get('Authorization'));
                     const token = res.headers.get('Authorization');
                     return token;
                 }else if(res.status === 400){
