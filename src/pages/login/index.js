@@ -60,7 +60,7 @@ export default function Signin(props){
                 </div>
                 <div className="signin-section">
                 
-                    <form onSubmit={(e) => handlerSub(e)} method="POST" action="https://fabiokleis-api.herokuapp/users/login" className="signin-form">
+                    <form onSubmit={(e) => handlerSub(e)} method="POST" action="https://fabiokleis-api.herokuapp.com/users/login" className="signin-form">
 
                         <label className="signin-label">Email address <span className="star">*</span></label>
                         <input required name="email" id="email"className="signin-input" type="email"></input>
