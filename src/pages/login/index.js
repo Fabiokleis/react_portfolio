@@ -40,6 +40,7 @@ export default function Signin(props){
                     return res.json();
                 }
             }).then((data) => {
+                console.log(data);
                 if(data.message){
                     setMsg(data.message);
                 }else{
