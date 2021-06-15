@@ -57,3 +57,22 @@
     border: 1px solid lightgreen;
     background-color:rgb(40, 94, 91);
 }
+
+.forgot_password-section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.forgot-text {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.forgot-text:hover {
+    color: lightgreen;
+
+}
+
+
+
+

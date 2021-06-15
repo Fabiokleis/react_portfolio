@@ -4,8 +4,8 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../actions/userActions';
+import {Link} from 'react-router-dom';
 import './index.css';
-
 
 export default function Signin(props){
     const dispatch = useDispatch();
@@ -60,7 +60,7 @@ export default function Signin(props){
                 </div>
                 <div className="signin-section">
                 
-                    <form onSubmit={(e) => handlerSub(e)} method="POST" action="https://fabiokleis-api.herokuapp.com/users/login" className="signin-form">
+                    <form onSubmit={(e) => handlerSub(e)} method="POST" action="http://127.0.0.1:3001/users/login" className="signin-form">
 
                         <label className="signin-label">Email address <span className="star">*</span></label>
                         <input required name="email" id="email"className="signin-input" type="email"></input>
@@ -68,7 +68,9 @@ export default function Signin(props){
                         <input required name="password" id="password" className="signin-input" type="password"></input>
                         <button className="signin-btn" type="submit">Sign in</button>
                     </form>
-
+                </div>
+                <div className="forgot_password-section">
+                    <Link className="forgot-text" to="/forgot_password">forgot password?</Link>
                 </div>
             </main>
             <Footer />

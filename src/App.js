@@ -9,7 +9,8 @@ import MainSection from './pages/main_section';
 import Projects from './pages/projects';
 import Signin from './pages/login';
 import Signup from './pages/register';
-import CardSection from './pages/card_section'
+import CardSection from './pages/card_section';
+import ForgotPassword from './pages/forgot_password';
 import UnLoggedRoute from './components/unLoggedRoute';
 
 
@@ -70,6 +71,10 @@ function App() {
 
                 <UnLoggedRoute exact path="/signup">
                     <Signup />
+                </UnLoggedRoute>
+
+                <UnLoggedRoute exact path="/forgot_password">
+                    <ForgotPassword />
                 </UnLoggedRoute>
 
                 <Route path="*">
