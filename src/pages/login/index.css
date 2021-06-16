@@ -39,25 +39,6 @@
     background: rgba(0, 0, 0, 0.753);
     box-sizing:border-box;
 }
-.signin-btn {
-    font-size: 20px;
-    width:300px;
-    padding: 5px;
-    margin: 15px;
-    border-radius: 5px;
-    border: 1px solid grey;
-    color: white;
-    font-weight: bold;
-    background-color: black;
-    transition: all 0.4s;
-    cursor: pointer;
-}
-
-.signin-btn:hover {
-    border: 1px solid lightgreen;
-    background-color:rgb(40, 94, 91);
-}
-
 .forgot_password-section {
     display:flex;
     justify-content: center;
@@ -73,6 +54,7 @@
 
 }
 
-
-
+.hidden {
+    display: none;
+}
 

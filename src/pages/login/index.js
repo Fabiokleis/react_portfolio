@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import jwt from 'jwt-decode';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import LoadScreen from '../../components/loadScreen';
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../actions/userActions';
 import {Link} from 'react-router-dom';
@@ -10,6 +11,7 @@ import './index.css';
 export default function Signin(props){
     const dispatch = useDispatch();
     const [msg, setMsg] = useState(null);
+    const [flag, setFlag] = useState(false);
 
     function handlerSub(e){
         e.preventDefault();
@@ -43,9 +45,13 @@ export default function Signin(props){
                 if(data.message){
                     setMsg(data.message);
                 }else{
-                    const user = jwt(data);
-                    user.token = data;
-                    dispatch(loginUser(user));
+                    setFlag(true);
+                    setTimeout(() => {
+                         const user = jwt(data);
+                        user.token = data;
+                        dispatch(loginUser(user));
+                    }, 2000);
+                                           
                 }
             }).catch(err => err);
     }
@@ -66,7 +72,7 @@ export default function Signin(props){
                         <input required name="email" id="email"className="signin-input" type="email"></input>
                         <label className="signin-label">Password <span className="star">*</span></label>
                         <input required name="password" id="password" className="signin-input" type="password"></input>
-                        <button className="signin-btn" type="submit">Sign in</button>
+                        <LoadScreen flag={flag} />
                     </form>
                 </div>
                 <div className="forgot_password-section">

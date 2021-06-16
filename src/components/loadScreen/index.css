@@ -1,0 +1,81 @@
+.loadscreen-container {
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    background-color:rgb(40, 94, 91); 
+    margin: 15px;
+    margin-top: 30px;
+    width: 300px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid lightgreen;
+}
+
+.signin-btn {
+    box-sizing: border-box;
+    font-size: 20px;
+    width:300px;
+    margin: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.signin-btn:hover {
+    border: 1px solid lightgreen;
+    background-color:rgb(40, 94, 91);
+}
+
+
+@keyframes loading {
+    10% {
+        transform: rotate(36deg);
+    }
+    20% {
+        transform: rotate(72deg);
+    }
+    30% {
+        transform: rotate(108deg);
+    }
+    40% {
+        transform: rotate(144deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    60% {
+        transform: rotate(216deg);
+    }
+    70% {
+        transform: rotate(252deg);
+    }
+    80% {
+        transform: rotate(288deg);
+    }
+    90% {
+        transform: rotate(324deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loadscreen-icon {
+    position: absolute;
+    display:flex;
+    animation: loading 1.5s infinite ease;
+}
+
+
+.hidden {
+    display:none;
+}
+
