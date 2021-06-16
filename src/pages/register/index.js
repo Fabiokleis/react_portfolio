@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import './index.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import LoadScreen from '../../components/loadScreen';
 import {useDispatch} from 'react-redux';
 import {createUser, loginUser} from '../../actions/userActions';
-
 
 export default function Signup(){
 
     const dispatch = useDispatch();
     const [msg, setMsg] = useState(null);
+    const [flag, setFlag] = useState(false);
 
     function handlerSub(e){
         e.preventDefault();
@@ -19,8 +20,11 @@ export default function Signup(){
             user.push(e.target.elements[i].value);
         }
         const [name, email, password] = user;
+        setFlag(true);
+        setTimeout(() => {
+            createUserRequest({name, email, password}, e.target.action);
 
-        createUserRequest({name, email, password}, e.target.action);
+        }, 2000);
 
     }
 
@@ -32,6 +36,7 @@ export default function Signup(){
                 method: 'POST',
                 body: JSON.stringify(data)
             }).then((res) => res.json()).then((data) => {
+                setFlag(false);
                 if(data.message){
                     setMsg(data.message);
                 }else{
@@ -60,7 +65,8 @@ export default function Signup(){
                         <input required name="email" id="email"className="signup-input" type="email" ></input>
                         <label className="signup-label">Password <span className="star">*</span></label>
                         <input required name="password" id="password" className="signup-input" type="password"></input>
-                        <button  className="signup-btn" type="submit">Sign up</button>
+
+                        <LoadScreen flag={flag} text={"Sign up"} />
                     </form>
                 </div>
             </main>

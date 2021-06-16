@@ -22,8 +22,11 @@ export default function Signin(props){
 
         }
         const [email, password] = user;
+        setFlag(true);
+        setTimeout(() => {
+            loginUserRequest({email, password}, e.target.action);
 
-        loginUserRequest({email, password}, e.target.action);
+        }, 2000);
     }
 
 
@@ -35,6 +38,7 @@ export default function Signin(props){
                 method: 'POST',
                 body: JSON.stringify(data)
             }).then((res) => {
+                setFlag(false);
                 if(res.status === 200){
                     const token = res.headers.get('Authorization');
                     return token;
@@ -45,12 +49,9 @@ export default function Signin(props){
                 if(data.message){
                     setMsg(data.message);
                 }else{
-                    setFlag(true);
-                    setTimeout(() => {
-                         const user = jwt(data);
-                        user.token = data;
-                        dispatch(loginUser(user));
-                    }, 2000);
+                    const user = jwt(data);
+                    user.token = data;
+                    dispatch(loginUser(user));
                                            
                 }
             }).catch(err => err);
@@ -72,7 +73,7 @@ export default function Signin(props){
                         <input required name="email" id="email"className="signin-input" type="email"></input>
                         <label className="signin-label">Password <span className="star">*</span></label>
                         <input required name="password" id="password" className="signin-input" type="password"></input>
-                        <LoadScreen flag={flag} />
+                        <LoadScreen flag={flag} text={'Sign in'} />
                     </form>
                 </div>
                 <div className="forgot_password-section">

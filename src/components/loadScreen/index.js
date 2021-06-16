@@ -9,7 +9,7 @@ export default function LoadScreen(props){
         <div className={props.flag?"loadscreen-container":"hidden"}>
             <img src={svgicon} alt="loading svg" className="loadscreen-icon"/>
        </div>
-       <button className={!props.flag?"signin-btn":"hidden"} type="submit">Sign in</button>
+       <button className={!props.flag?"signin-btn":"hidden"} type="submit">{props.text}</button>
         </>
     );
 }
