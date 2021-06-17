@@ -62,7 +62,7 @@ export default function Signup(){
                 </div>
                 <div className="signup-section">
 
-                    <form method="POST" onSubmit={(e) => handlerSub(e)} action="http://127.0.0.1:3001/users" className="signup-form">
+                    <form method="POST" onSubmit={(e) => handlerSub(e)} action="http://fabiokleis-api.herokuapp.com/users" className="signup-form">
                         <label  className="signup-label">Username <span className="star">*</span></label>
                         <input required name="name" id="name" className="signup-input" type="text" ></input>
                         <label  className="signup-label">Email address <span className="star">*</span></label>
