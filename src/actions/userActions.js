@@ -9,3 +9,7 @@ export function loginUser(user){
 export function logOutUser(){
     return {type: 'LOGOUT_USER'};
 }
+
+export function saveEmail(email){
+    return {type: 'SAVE_EMAIL', payload: email};
+}

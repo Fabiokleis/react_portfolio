@@ -2,14 +2,16 @@ import React,{useState} from 'react';
 import jwt from 'jwt-decode';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import LoadScreen from '../../components/loadScreen';
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../actions/userActions';
+import {Link} from 'react-router-dom';
 import './index.css';
-
 
 export default function Signin(props){
     const dispatch = useDispatch();
     const [msg, setMsg] = useState(null);
+    const [flag, setFlag] = useState(false);
 
     function handlerSub(e){
         e.preventDefault();
@@ -20,8 +22,11 @@ export default function Signin(props){
 
         }
         const [email, password] = user;
+        setFlag(true);
+        setTimeout(() => {
+            loginUserRequest({email, password}, e.target.action);
 
-        loginUserRequest({email, password}, e.target.action);
+        }, 2000);
     }
 
 
@@ -33,6 +38,7 @@ export default function Signin(props){
                 method: 'POST',
                 body: JSON.stringify(data)
             }).then((res) => {
+                setFlag(false);
                 if(res.status === 200){
                     const token = res.headers.get('Authorization');
                     return token;
@@ -46,6 +52,7 @@ export default function Signin(props){
                     const user = jwt(data);
                     user.token = data;
                     dispatch(loginUser(user));
+                                           
                 }
             }).catch(err => err);
     }
@@ -66,9 +73,11 @@ export default function Signin(props){
                         <input required name="email" id="email"className="signin-input" type="email"></input>
                         <label className="signin-label">Password <span className="star">*</span></label>
                         <input required name="password" id="password" className="signin-input" type="password"></input>
-                        <button className="signin-btn" type="submit">Sign in</button>
+                        <LoadScreen flag={flag} text={'Sign in'} />
                     </form>
-
+                </div>
+                <div className="forgot_password-section">
+                    <Link className="forgot-text" to="/forgot_password">forgot password?</Link>
                 </div>
             </main>
             <Footer />
