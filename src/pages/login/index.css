@@ -9,11 +9,17 @@
 }
 .notification-msg {
     margin: 20px;
-    color: red;
-    background-color: #FFD2D2;
     padding: 5px;
     width: max-content;
     border-radius: 5px;
+}
+.error-msg {
+    color: red;
+    background-color: #FFD2D2;
+}
+.success-msg {
+    color: rgba(23, 133, 23, 0.979);
+    background-color: rgb(103, 180, 103);
 }
 
 .signin-label {
