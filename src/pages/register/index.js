@@ -43,7 +43,11 @@ export default function Signup(){
                     dispatch(createUser(data[0]));
                     dispatch(loginUser(data[0]));
                 }
-            }).catch(err => err);
+            }).catch(err => {
+                setFlag(false);
+                setMsg("Eror on servers! try again later!");
+                setTimeout(() => { setMsg(null) }, 4000);
+            });
     }
 
 

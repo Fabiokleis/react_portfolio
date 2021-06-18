@@ -52,9 +52,12 @@ export default function Signin(props){
                     const user = jwt(data);
                     user.token = data;
                     dispatch(loginUser(user));
-                                           
                 }
-            }).catch(err => err);
+            }).catch(err => {
+                setFlag(false);
+                setMsg("Eror on servers! try again later!");
+                setTimeout(() => { setMsg(null) }, 4000)
+            });
     }
 
     return (

@@ -18,7 +18,6 @@ export default function ForgotPassword(props){
     const [flag, setFlag] = useState(false);
     const [match, setMatch] = useState(false);
     const [loading, setLoading] = useState(false);
-    
 
     useEffect(() => {
         let {from} = location.state || {from:{pathname: "/new_password"}};
@@ -57,7 +56,6 @@ export default function ForgotPassword(props){
                 }, 3000)
             }
         }
-
         e.target.elements[0].value = "";
     }
 
@@ -76,13 +74,13 @@ export default function ForgotPassword(props){
             }).then(data => {
                 if(data.message){
                     setMsg(data.message);
-                }else{
-                    dispatch(saveUserForgotPassword(data));
+                    setTimeout(() => {setMsg(null);}, 5000);
                 }
+                dispatch(saveUserForgotPassword(data));
             }).catch(err => {
                 setLoading(false);
                 setMsg("Error on servers! try again later...");
-                setTimeout(() => {setMsg(null)}, 4000);
+                setTimeout(() => {setMsg(null);}, 4000);
             });
 
     }
@@ -113,8 +111,11 @@ export default function ForgotPassword(props){
             <main className="section-container">
                 <div className="info-container">
                     <h1 className="title-center">Recover password</h1>
-                    <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
-                    
+                    <h3 
+                    className={msg?"notification-msg":"hidden"} >
+                        {msg}
+                    </h3>
+
                 </div>
                 <div className="forgot-section">
                     <form onSubmit={(e) => handlerSub(e)} method="GET" action={!flag?"http://127.0.0.1:3001/users/forgot_password":"http://127.0.0.1:3001/users/"} className="recover-form">

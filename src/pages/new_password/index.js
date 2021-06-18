@@ -5,7 +5,7 @@ import LoadScreen from '../../components/loadScreen';
 import {useHistory, useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
-export default function NewPassword(props) {
+export default function NewPassword() {
     const userForgotPasswordData = useSelector(state => state.register);
     const history = useHistory();
     const location = useLocation();
@@ -19,6 +19,7 @@ export default function NewPassword(props) {
         let {from} = location.state || {from:{pathname: "/signin"}};
         if(match){
             setFlag(true);
+            setMsg("Loggin your account now!");
             setTimeout(() => {
                 history.replace(from);
             }, 2000);
