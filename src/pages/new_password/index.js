@@ -17,6 +17,9 @@ export default function NewPassword() {
 
     useEffect(() => {
         let {from} = location.state || {from:{pathname: "/signin"}};
+        if(!Object.values(userForgotPasswordData).length){
+            history.replace(from);
+        }
         if(match){
             setFlag(true);
             setMsg("Loggin your account now!");
@@ -24,7 +27,7 @@ export default function NewPassword() {
                 history.replace(from);
             }, 2000);
         }
-    }, [match, history, location]);
+    }, [match, history, location, userForgotPasswordData]);
 
     function handlerSub(e){
         e.preventDefault();
@@ -56,7 +59,6 @@ export default function NewPassword() {
     }
 
     function UpdatePasswordRequest(data, url){
-        console.log(data);
         fetch(url, 
             {
                 method: 'PUT',
@@ -83,9 +85,10 @@ export default function NewPassword() {
         <>
         <Header />
         <main className="section-container">
+            <h1 className="title-center">New account password</h1>
+
             <div className="info-container">
-                <h1 className="title-center">New account password</h1>
-                <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
+               <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
             </div>
             <div className="signin-section">
             

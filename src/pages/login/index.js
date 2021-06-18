@@ -55,7 +55,7 @@ export default function Signin(props){
                 }
             }).catch(err => {
                 setFlag(false);
-                setMsg("Eror on servers! try again later!");
+                setMsg("Error on servers! try again later!");
                 setTimeout(() => { setMsg(null) }, 4000)
             });
     }
@@ -64,13 +64,14 @@ export default function Signin(props){
         <>
             <Header />
             <main className="section-container">
+                <h1 className="title-center">Loggin your account</h1>
+
                 <div className="info-container">
-                    <h1 className="title-center">Loggin your account</h1>
                     <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
                 </div>
                 <div className="signin-section">
                 
-                    <form onSubmit={(e) => handlerSub(e)} method="POST" action="https://fabiokleis-api.herokuapp.com/users/login" className="signin-form">
+                    <form onSubmit={(e) => handlerSub(e)} method="POST" action="http://127.0.0.1:3001/users/login" className="signin-form">
 
                         <label className="signin-label">Email address <span className="star">*</span></label>
                         <input required name="email" id="email"className="signin-input" type="email"></input>

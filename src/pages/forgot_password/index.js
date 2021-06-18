@@ -109,16 +109,16 @@ export default function ForgotPassword(props){
         <>
             <Header />
             <main className="section-container">
+                <h1 className="title-center">Recover password</h1>
+
                 <div className="info-container">
-                    <h1 className="title-center">Recover password</h1>
-                    <h3 
-                    className={msg?"notification-msg":"hidden"} >
+                    <h3 className={msg?"notification-msg":"hidden"} >
                         {msg}
                     </h3>
 
                 </div>
                 <div className="forgot-section">
-                    <form onSubmit={(e) => handlerSub(e)} method="GET" action={!flag?"https://fabiokleis-api.herokuapp.com/users/forgot_password":"https://fabiokleis-api.herokuapp.com/users/"} className="recover-form">
+                    <form onSubmit={(e) => handlerSub(e)} method="GET" action={!flag?"http://127.0.0.1:3001/users/forgot_password":"http://127.0.0.1:3001/users/"} className="recover-form">
                         <label className="recover-label">{!flag?"Email address ":"Random Token "}<span className="star">*</span></label>
                         <input required placeholder={!flag?"":"TOKEN"} name={!flag?"email":"reset_token"} id={!flag?"email":"reset_token"} className={!flag?"recover-input":"token-input"} type={!flag?"email":"text"} ></input>
                         <LoadScreen flag={loading} match={match} text={!flag?"Send Email": "Verify Token"} />

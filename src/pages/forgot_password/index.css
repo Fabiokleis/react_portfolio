@@ -2,9 +2,12 @@
     flex: 1 0 auto;
 }
 .info-container {
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
+    right: 5%;
+    top: 15%;
 }
 .forgot-section {
     margin: 50px;

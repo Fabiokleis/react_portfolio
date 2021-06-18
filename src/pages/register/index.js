@@ -45,7 +45,7 @@ export default function Signup(){
                 }
             }).catch(err => {
                 setFlag(false);
-                setMsg("Eror on servers! try again later!");
+                setMsg("Error on servers! try again later!");
                 setTimeout(() => { setMsg(null) }, 4000);
             });
     }
@@ -56,13 +56,14 @@ export default function Signup(){
         <>
             <Header />
             <main className="section-container">
+                <h1 className="title-center">Create your account</h1>
+
                 <div className="info-container">
-                    <h1 className="title-center">Create your account</h1>
                     <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
                 </div>
                 <div className="signup-section">
 
-                    <form method="POST" onSubmit={(e) => handlerSub(e)} action="https://fabiokleis-api.herokuapp.com/users" className="signup-form">
+                    <form method="POST" onSubmit={(e) => handlerSub(e)} action="http://127.0.0.1:3001/users" className="signup-form">
                         <label  className="signup-label">Username <span className="star">*</span></label>
                         <input required name="name" id="name" className="signup-input" type="text" ></input>
                         <label  className="signup-label">Email address <span className="star">*</span></label>
