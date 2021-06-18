@@ -66,4 +66,21 @@
 .hidden {
     display: none;
 }
+.password-section {
+    position: relative;
+}
+
+.eyes {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+}
+
+
+
+
+
+
+
+
 

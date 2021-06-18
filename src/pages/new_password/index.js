@@ -4,6 +4,10 @@ import Footer from '../../components/footer';
 import LoadScreen from '../../components/loadScreen';
 import {useHistory, useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import './index.css';
+import show from './eye.svg';
+import hide from './eye-off.svg';
+
 
 export default function NewPassword() {
     const userForgotPasswordData = useSelector(state => state.register);
@@ -81,6 +85,26 @@ export default function NewPassword() {
         });
     }
 
+    function swapImg(element){
+        if(element.target.src.includes(hide)){
+            document.getElementById('password').type = "text";
+               element.target.src = show;
+        }else{
+            element.target.src = hide;
+            document.getElementById('password').type = "password";
+        }
+    }
+
+    function swapImg2(element){
+        if(element.target.src.includes(hide)){
+            document.getElementById('confirm-password').type = "text";
+            element.target.src = show;
+        }else{
+            element.target.src = hide;
+            document.getElementById('confirm-password').type = "password";
+        }
+    }
+
     return (
         <>
         <Header />
@@ -93,10 +117,14 @@ export default function NewPassword() {
             <div className="signin-section">
             
                 <form onSubmit={(e) => handlerSub(e)} method="POST" action="http://127.0.0.1:3001/users/new_password" className="signin-form">
-                    <label className="signin-label">New Password <span className="star">*</span></label>
-                    <input onChange={handlerPasswd} required name="password" id="password" className="signin-input" type="password"></input>
-                    <label className="signin-label">Confirm Password <span className="star">*</span></label>
-                    <input onChange={handlerConfirmPasswd} required name="confirm-password" id="confirm-password" className="signin-input" type="password"></input>
+                    <div className="password-section">
+                        <label className="signin-label">New Password <span className="star">*</span></label>
+                        <img src={hide} alt="eye" onClick={swapImg} className="first-img"/>
+                        <input onChange={handlerPasswd} required name="password" id="password" className="signin-input" type="password"></input>
+                        <img src={hide} alt="eye" onClick={swapImg2} className="sec-img" />
+                        <label className="signin-label">Confirm Password <span className="star">*</span></label>
+                        <input onChange={handlerConfirmPasswd} required name="confirm-password" id="confirm-password" className="signin-input" type="password"></input>
+                    </div>
                     <LoadScreen flag={flag} text={'Recreate'} />
                 </form>
             </div>

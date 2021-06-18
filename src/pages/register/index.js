@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './index.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import PasswordInput from '../../components/passwordInput';
 import LoadScreen from '../../components/loadScreen';
 import {useDispatch} from 'react-redux';
 import {createUser, loginUser} from '../../actions/userActions';
@@ -68,9 +69,7 @@ export default function Signup(){
                         <input required name="name" id="name" className="signup-input" type="text" ></input>
                         <label  className="signup-label">Email address <span className="star">*</span></label>
                         <input required name="email" id="email"className="signup-input" type="email" ></input>
-                        <label className="signup-label">Password <span className="star">*</span></label>
-                        <input required name="password" id="password" className="signup-input" type="password"></input>
-
+                        <PasswordInput /> 
                         <LoadScreen flag={flag} text={"Sign up"} />
                     </form>
                 </div>
