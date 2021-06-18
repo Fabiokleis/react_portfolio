@@ -10,6 +10,6 @@ export function logOutUser(){
     return {type: 'LOGOUT_USER'};
 }
 
-export function saveEmail(email){
-    return {type: 'SAVE_EMAIL', payload: email};
+export function saveUserForgotPassword(user){
+    return {type: 'SAVE_EMAIL', payload: user};
 }

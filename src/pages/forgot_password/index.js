@@ -4,14 +4,14 @@ import Footer from '../../components/footer';
 import LoadScreen from '../../components/loadScreen';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory, useLocation} from 'react-router-dom';
-import {saveEmail} from '../../actions/userActions.js';
+import {saveUserForgotPassword} from '../../actions/userActions.js';
 import querystring from 'querystring';
 import './index.css';
 
 
 export default function ForgotPassword(props){
     const dispatch = useDispatch();
-    const email = useSelector(state => state.register);
+    const userEmailAndToken = useSelector(state => state.register);
     const history = useHistory();
     const location = useLocation();
     const [msg, setMsg] = useState(null);
@@ -29,30 +29,35 @@ export default function ForgotPassword(props){
 
             }, 2000);
         }
-        
+
     }, [match, history, location]);
 
     function handlerSub(e){
         e.preventDefault();
         if(!flag){
             const email = e.target.elements[0].value;
-            dispatch(saveEmail(email));
             setLoading(true);
             setTimeout(() => {
                 forgotPasswordRequest({email}, e.target.action);
-
             }, 2000);
 
         }else{
             const reset_token = e.target.elements[0].value;
-            const data = {email, reset_token};
-            setLoading(true);
-            setTimeout(() => {
-                 verifyUserToken(e.target.action+"?"+querystring.stringify(data));
-            }, 2000);
-                      
+            const [data] = userEmailAndToken;
+            if(reset_token === data.reset_token){
+                setLoading(true);
+                setTimeout(() => {
+                    verifyUserToken(e.target.action+"?"+querystring.stringify(data));
+                }, 2000);
+
+            }else{
+                setMsg("Token invalid!");
+                setTimeout(() => {
+                    setMsg(null);
+                }, 3000)
+            }
         }
-        
+
         e.target.elements[0].value = "";
     }
 
@@ -69,13 +74,21 @@ export default function ForgotPassword(props){
                 }
                 return res.json();
             }).then(data => {
-                console.log(data);
-                setMsg(data.message);
-            }).catch(err => console.log(err));
+                if(data.message){
+                    setMsg(data.message);
+                }else{
+                    dispatch(saveUserForgotPassword(data));
+                }
+            }).catch(err => {
+                setLoading(false);
+                setMsg("Error on servers! try again later...");
+                setTimeout(() => {setMsg(null)}, 4000);
+            });
+
     }
-   
+
     function verifyUserToken(url){
-        const response = fetch(url, {method: 'GET'})
+        fetch(url, {method: 'GET'})
             .then((res) => {
                 setLoading(false);
                 if(res.status === 200){
@@ -83,14 +96,16 @@ export default function ForgotPassword(props){
                 }
                 return res.json();
             }).then(data => {
-                console.log(data);
-                setMsg(data.message);
-            }).catch(err => console.log(err));
-        
-        return response;
+                if(data.message){
+                    setMsg(data.message);
+                }
+            }).catch(err => {
+                setLoading(false);
+                setMsg("Error on servers! try again later...");
+                setTimeout(() => {setMsg(null)}, 4000);
+            });
     }
 
-        
 
     return (
         <>
