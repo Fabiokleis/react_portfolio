@@ -1,0 +1,14 @@
+.password-section {
+    position: relative;
+}
+
+.first-img {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+}
+.sec-img {
+    position: absolute;
+    right: 20px;
+        top: 125px;
+} 

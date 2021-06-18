@@ -109,10 +109,10 @@ export default function ForgotPassword(props){
         <>
             <Header />
             <main className="section-container">
+                <h1 className="title-center">Recover password</h1>
+
                 <div className="info-container">
-                    <h1 className="title-center">Recover password</h1>
-                    <h3 
-                    className={msg?"notification-msg":"hidden"} >
+                    <h3 className={msg?"notification-msg":"hidden"} >
                         {msg}
                     </h3>
 
