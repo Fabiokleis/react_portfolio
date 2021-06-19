@@ -14,7 +14,6 @@ import CardSection from './pages/card_section';
 import ForgotPassword from './pages/forgot_password';
 import UnLoggedRoute from './components/unLoggedRoute';
 
-
 const combinedReducers = combineReducers(
     {
         register: createUser,
@@ -81,7 +80,7 @@ function App() {
                 <UnLoggedRoute exact path="/new_password">
                     <NewPassword></NewPassword>
                 </UnLoggedRoute>
-
+                
                 <Route path="*">
                     <div>not found 404</div>
                 </Route>

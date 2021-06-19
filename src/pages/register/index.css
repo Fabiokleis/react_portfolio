@@ -63,3 +63,13 @@
     font-weight:bold;
     color: #f13f3f;
 }
+
+.checkbox-container {
+    margin-left: 15px;
+}
+
+.checkbox-label {
+    margin: 5px;
+}
+
+
