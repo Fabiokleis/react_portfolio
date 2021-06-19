@@ -6,6 +6,7 @@ import PasswordInput from '../../components/passwordInput';
 import LoadScreen from '../../components/loadScreen';
 import {useDispatch} from 'react-redux';
 import {createUser, loginUser} from '../../actions/userActions';
+import jwt from 'jwt-decode';
 
 export default function Signup(){
 
@@ -14,10 +15,9 @@ export default function Signup(){
     const [flag, setFlag] = useState(false);
     const [checked, setChecked] = useState(false);
 
-    function handlerSub(e){
+    async function handlerSub(e){
         e.preventDefault();
         
-        setChecked(e.target.elements[3].checked);
         
         const user = [];
         for(let i = 0; i < 3; i++){
@@ -25,16 +25,19 @@ export default function Signup(){
         }
         const [name, email, password] = user;
         setFlag(true);
-        setTimeout(() => {
-            createUserRequest({name, email, password}, e.target.action);
-
-        }, 2000);
         
+        const data = await createUserRequest({name, email, password}, e.target.action);
+        setChecked(e.target.elements[3].checked);
+        if(checked && data){
+            SubscribeRequest({email}, 'https://fabiokleis-api.herokuapp.com/subscribe_email');
+        }
+        if(data){
+            loginUserRequest({email, password}, 'https://fabiokleis-api.herokuapp.com/users/login');
+        }
     }
 
     function createUserRequest(data,url){
-
-        fetch(url, 
+        const response = fetch(url, 
             {
                 headers: {'Content-Type': 'application/json'},
                 method: 'POST',
@@ -47,18 +50,15 @@ export default function Signup(){
                 }else{
                     const {email} = data[0];
                     dispatch(createUser(data[0]));
-                    if(checked){
-                        SubscribeRequest({email}, 'https://fabiokleis-api.herokuapp.com/users/subscribe_email');
-                        setTimeout(() => {
-                            dispatch(loginUser(data[0]));
-                        }, 2000);
-                    }
+
+                    return data[0];
                 }
             }).catch(err => {
                 setFlag(false);
                 setMsg("Error on servers! try again later!");
                 setTimeout(() => { setMsg(null) }, 4000);
             });
+        return response;
     }
 
     function SubscribeRequest(data, url){
@@ -71,6 +71,26 @@ export default function Signup(){
         );
     }
 
+    function loginUserRequest(data,url){
+
+        fetch(url, 
+            {
+                headers: {'Content-Type': 'application/json'},
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).then((res) => {
+                if(res.status === 200){
+                    const token = res.headers.get('Authorization');
+                    return token;
+                }
+           }).then((data) => {
+                const user = jwt(data);
+                user.token = data;
+                dispatch(loginUser(user));
+            });
+    }
+
+ 
     return (
         <>
             <Header />
