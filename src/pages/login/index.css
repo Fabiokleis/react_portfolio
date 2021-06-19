@@ -3,9 +3,12 @@
 }
 
 .info-container {
+    position: absolute;
     display:flex;
     flex-direction: column;
     align-items:center;
+    right: 5%;
+    top: 15%;
 }
 .notification-msg {
     margin: 20px;
@@ -63,4 +66,21 @@
 .hidden {
     display: none;
 }
+.password-section {
+    position: relative;
+}
+
+.eyes {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+}
+
+
+
+
+
+
+
+
 

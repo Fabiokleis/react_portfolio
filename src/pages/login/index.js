@@ -3,6 +3,7 @@ import jwt from 'jwt-decode';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import LoadScreen from '../../components/loadScreen';
+import PasswordInput from '../../components/passwordInput';
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../actions/userActions';
 import {Link} from 'react-router-dom';
@@ -55,17 +56,19 @@ export default function Signin(props){
                 }
             }).catch(err => {
                 setFlag(false);
-                setMsg("Eror on servers! try again later!");
+                setMsg("Error on servers! try again later!");
                 setTimeout(() => { setMsg(null) }, 4000)
             });
     }
 
+   
     return (
         <>
             <Header />
             <main className="section-container">
+                <h1 className="title-center">Loggin your account</h1>
+
                 <div className="info-container">
-                    <h1 className="title-center">Loggin your account</h1>
                     <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
                 </div>
                 <div className="signin-section">
@@ -74,8 +77,7 @@ export default function Signin(props){
 
                         <label className="signin-label">Email address <span className="star">*</span></label>
                         <input required name="email" id="email"className="signin-input" type="email"></input>
-                        <label className="signin-label">Password <span className="star">*</span></label>
-                        <input required name="password" id="password" className="signin-input" type="password"></input>
+                        <PasswordInput />
                         <LoadScreen flag={flag} text={'Sign in'} />
                     </form>
                 </div>

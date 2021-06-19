@@ -4,6 +4,10 @@ import Footer from '../../components/footer';
 import LoadScreen from '../../components/loadScreen';
 import {useHistory, useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import './index.css';
+import show from './eye.svg';
+import hide from './eye-off.svg';
+
 
 export default function NewPassword() {
     const userForgotPasswordData = useSelector(state => state.register);
@@ -17,6 +21,9 @@ export default function NewPassword() {
 
     useEffect(() => {
         let {from} = location.state || {from:{pathname: "/signin"}};
+        if(!Object.values(userForgotPasswordData).length){
+            history.replace(from);
+        }
         if(match){
             setFlag(true);
             setMsg("Loggin your account now!");
@@ -24,7 +31,7 @@ export default function NewPassword() {
                 history.replace(from);
             }, 2000);
         }
-    }, [match, history, location]);
+    }, [match, history, location, userForgotPasswordData]);
 
     function handlerSub(e){
         e.preventDefault();
@@ -56,7 +63,6 @@ export default function NewPassword() {
     }
 
     function UpdatePasswordRequest(data, url){
-        console.log(data);
         fetch(url, 
             {
                 method: 'PUT',
@@ -79,16 +85,37 @@ export default function NewPassword() {
         });
     }
 
+    function swapImg(element){
+        if(element.target.src.includes(hide)){
+            document.getElementById('password').type = "text";
+               element.target.src = show;
+        }else{
+            element.target.src = hide;
+            document.getElementById('password').type = "password";
+        }
+    }
+
+    function swapImg2(element){
+        if(element.target.src.includes(hide)){
+            document.getElementById('confirm-password').type = "text";
+            element.target.src = show;
+        }else{
+            element.target.src = hide;
+            document.getElementById('confirm-password').type = "password";
+        }
+    }
+
     return (
         <>
         <Header />
         <main className="section-container">
+            <h1 className="title-center">New account password</h1>
+
             <div className="info-container">
-                <h1 className="title-center">New account password</h1>
-                <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
+               <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
             </div>
             <div className="signin-section">
-            
+
                 <form onSubmit={(e) => handlerSub(e)} method="POST" action="https://fabiokleis-api.herokuapp.com/users/new_password" className="signin-form">
                     <label className="signin-label">New Password <span className="star">*</span></label>
                     <input onChange={handlerPasswd} required name="password" id="password" className="signin-input" type="password"></input>
