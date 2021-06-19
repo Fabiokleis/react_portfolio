@@ -46,12 +46,13 @@ export default function Signup(){
                     setTimeout(() => {setMsg(null)}, 4000);
                 }else{
                     const {email} = data[0];
-                    console.log(email);
                     dispatch(createUser(data[0]));
                     if(checked){
-                        SubscribeRequest({email}, 'http://127.0.0.1:3001/users/subscribe_email');
+                        SubscribeRequest({email}, 'https://fabiokleis-api.herokuapp.com/users/subscribe_email');
+                        setTimeout(() => {
+                            dispatch(loginUser(data[0]));
+                        }, 2000);
                     }
-                    //dispatch(loginUser(data[0]));
                 }
             }).catch(err => {
                 setFlag(false);
@@ -61,7 +62,6 @@ export default function Signup(){
     }
 
     function SubscribeRequest(data, url){
-        console.log(url);
         fetch(url, 
             {
                 method: 'POST',

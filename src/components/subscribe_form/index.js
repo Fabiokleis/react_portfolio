@@ -37,7 +37,7 @@ export default function SubscribeForm(props) {
     return (
         <div className="subscribe-form">
             <h3>Receive new posts</h3>
-            <form onSubmit={handlerSub} method="POST" action="http://127.0.0.1:3001/users/subscribe_email">
+            <form onSubmit={handlerSub} method="POST" action="https://fabiokleis-api.herokuapp.com/users/subscribe_email">
                 <input className="subscribe-input" placeholder="Email address" name="email" type="email" id="email"></input>
                 <button type="submit" className="subscribe-btn">Subscribe</button>
             </form>
