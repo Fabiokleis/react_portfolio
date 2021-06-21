@@ -1,0 +1,30 @@
+.card-title {
+    font-size: 25px;
+    padding: 5px;
+}
+.card-container {
+    margin: auto;
+    margin-top: 10px;
+    height: max-content;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.411);
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px black;
+}
+
+.card-header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-date {
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.card-description {
+    font-size: 20px;
+}
+
+
