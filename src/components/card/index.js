@@ -22,14 +22,14 @@ export default function Cards(props){
     
     useEffect(() => {
         setLoading(true);
-        getAllPosts('?page=1','http://localhost:3001/posts');
+        getAllPosts('?page=2','http://localhost:3001/posts');
     }, []);
     
     return (
         <>
-            {posts.map((post, index) => (
-                <Card post={post} key={index} />
-            ))}
+           {posts.map((post, index) => (
+               <Card key={index} post={post} />
+          ))}
        </>
     );
 }
