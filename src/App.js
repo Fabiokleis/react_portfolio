@@ -3,7 +3,7 @@ import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import loginReducer from './reducers/loginReducer';
 import createUser from './reducers/createUserReducer';
-import './App.css';
+import postsReducer from './reducers/postsReducer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MainSection from './pages/main_section';
 import Projects from './pages/projects';
@@ -13,11 +13,13 @@ import NewPassword from './pages/new_password';
 import CardSection from './pages/card_section';
 import ForgotPassword from './pages/forgot_password';
 import UnLoggedRoute from './components/unLoggedRoute';
+import './App.css';
 
 const combinedReducers = combineReducers(
     {
         register: createUser,
-        login: loginReducer
+        login: loginReducer,
+        posts: postsReducer
 
     }
 )

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import Cards from '../../components/card';
+import Cards from '../../components/card/';
 import './index.css';
 
 export default function CardSection(props){
@@ -10,9 +10,9 @@ export default function CardSection(props){
         <>
             <Header />
             <main className="section-container">
-                <h1>Posts</h1>
+                <h1 className="title-center">Posts</h1>
                 <div className="card-section">
-                    <Cards />
+                    <Cards page={1} />
                 </div>
             </main>
             <Footer />
