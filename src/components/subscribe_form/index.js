@@ -1,18 +1,13 @@
-import React,{useState} from 'react';
-import LoadScreen from '../loadScreen';
+import React from 'react';
 import './index.css';
 
 export default function SubscribeForm(props) {
-
-    const [flag, setFlag] = useState(null);
 
     function handlerSub(e){
         e.preventDefault();
         const email = e.target.elements[0].value; 
 
-        setTimeout(() => {
-            SubscribeRequest({email}, e.target.action)
-        }, 2000);
+        SubscribeRequest({email}, e.target.action);
         e.target.elements[0].value = "";
     }
 
@@ -23,15 +18,7 @@ export default function SubscribeForm(props) {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
             }
-        ).then(res =>  {
-            if(res.status === 200){
-                setFlag(true);
-            }
-            setTimeout(() => { setFlag(false)}, 2000);
-            return res.json();
-        }).catch(err => {
-            setFlag(false);
-        });
+        ).catch(err => alert("Error on servers! try again later..."));
     }
 
     return (

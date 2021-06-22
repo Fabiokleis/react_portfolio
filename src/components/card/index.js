@@ -16,7 +16,7 @@ export default function Cards({page}){
 
     useEffect(() => {
         getPosts('http://localhost:3001/posts?page='+page);
-    }, []);
+    }, [page]);
 
     return (
         <>
