@@ -15,8 +15,8 @@ export default function CardSection(props){
                 <h1 className="title-center">Posts</h1>
                 <div className="posts-section">
                     {posts.map(post => (
-                        <div className="post-container">
-                            <div className="post-header" key={post.id}>
+                        <div className="post-container"key={post.id}>
+                            <div className="post-header">
                                 <h1 className="post-title">
                                     <span className="post-name">
                                         {"@"+post.name} 
