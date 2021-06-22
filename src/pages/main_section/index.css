@@ -127,20 +127,11 @@
     flex-direction: column;
 }
 
-
-.posts-section 
-.posts-card 
-.posts-card-title,
-.posts-section 
-.posts-card 
-.posts-card-description {
-    padding: 5px;
-}
-
 .projects-container {
     display:flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .projects-section {
@@ -154,6 +145,7 @@
 .projects-section
 .projects-card {
     cursor: pointer;
+    width: 100%;
 }
 
 .projects-section
@@ -177,15 +169,13 @@
     border-radius: 10px;
     position:absolute;
     opacity: 0.7; 
-    background-color: black;
     z-index: 1;
     display:flex;
     align-items: center;
     justify-content: center;
     transform: scale(0.9);
     transition: all 0.3s;
-    width: 80px;
-    height: 180px;
+    width: 50px;
     cursor: pointer;
 }
 
@@ -197,11 +187,6 @@
     background-color: rgb(0,0,0,0);
     color:white;
     border:none;
-    font-size: 60px;
-    font-weight: bold;
-    width: 80px;
-    height: 180px;
- 
 }
 
 .arrow-container-left {
