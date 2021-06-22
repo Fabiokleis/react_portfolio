@@ -5,6 +5,9 @@
 .card-date {
     font-size: 12px;
 }
+.card-name {
+    color: royalblue;
+}
 .card-container {
     position: relative;
     box-sizing: border-box;

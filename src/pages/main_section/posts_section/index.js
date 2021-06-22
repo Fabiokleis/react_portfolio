@@ -5,7 +5,7 @@ import './index.css';
 export default function PostsSection(props){
 
     return (
-        <div className="posts-section">
+        <div className="cards-section">
             <Cards page={1} />
         </div>
    );

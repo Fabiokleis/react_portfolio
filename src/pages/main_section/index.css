@@ -115,7 +115,8 @@
     border-radius: 3px;
     width:70%;
 }
-.posts-section {
+
+.cards-section {
     border-radius: 5px;
     box-sizing: border-box;
     padding: 10px;
@@ -126,15 +127,6 @@
     flex-direction: column;
 }
 
-.posts-card {
-    position: relative;
-    box-sizing: border-box;
-    border-bottom: 1px solid grey;
-}
-
-.posts-card-title{
-    display:flex;
-}
 
 .posts-section 
 .posts-card 
