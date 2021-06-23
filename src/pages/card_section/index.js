@@ -1,38 +1,43 @@
 import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
+import {useSelector} from 'react-redux';
 import './index.css';
 
-
 export default function CardSection(props){
+    const posts = useSelector(state => state.posts);
     
     return (
         <>
             <Header />
             <main className="section-container">
-                <h1>Posts</h1>
-                <div className="card-section">
-                    <div className="card-container">
-                        <h3 className="card-title">Card title</h3>
-                        <p>Nostrud ea enim proident ullamco amet ea sit eiusmod laboris deserunt minim non. Enim cillum do incididunt non consectetur. Sit non consequat laboris voluptate reprehenderit. Magna est nulla aliqua veniam. Mollit eiusmod elit nulla minim.
-
-                        Amet id consequat et quis fugiat. Veniam eiusmod sunt amet aute esse minim in eiusmod cupidatat exercitation labore. Laboris deserunt sint deserunt occaecat deserunt cupidatat pariatur deserunt culpa. Aute ex nisi enim officia.
-                        </p>
-                    </div>
-                    <div className="card-container">
-                        <h3 className="card-title">Card title</h3>
-                        <p>Nostrud ea enim proident ullamco amet ea sit eiusmod laboris deserunt minim non. Enim cillum do incididunt non consectetur. Sit non consequat laboris voluptate reprehenderit. Magna est nulla aliqua veniam. Mollit eiusmod elit nulla minim.
-
-                        Amet id consequat et quis fugiat. Veniam eiusmod sunt amet aute esse minim in eiusmod cupidatat exercitation labore. Laboris deserunt sint deserunt occaecat deserunt cupidatat pariatur deserunt culpa. Aute ex nisi enim officia.
-                        </p>
-                    </div>
-                                    <div className="card-container">
-                        <h3 className="card-title">Card title</h3>
-                        <p>Nostrud ea enim proident ullamco amet ea sit eiusmod laboris deserunt minim non. Enim cillum do incididunt non consectetur. Sit non consequat laboris voluptate reprehenderit. Magna est nulla aliqua veniam. Mollit eiusmod elit nulla minim.
-
-                        Amet id consequat et quis fugiat. Veniam eiusmod sunt amet aute esse minim in eiusmod cupidatat exercitation labore. Laboris deserunt sint deserunt occaecat deserunt cupidatat pariatur deserunt culpa. Aute ex nisi enim officia.
-                        </p>
-                    </div>
+                <h1 className="title-center">Posts</h1>
+                <div className="posts-section">
+                    {posts.map(post => (
+                        <div className="post-container"key={post.id}>
+                            <div className="post-header">
+                                <h1 className="post-title">
+                                    <span className="post-name">
+                                        {"@"+post.name} 
+                                    </span> - {post.title}
+                                </h1>
+                                <span className="post-date">
+                                    {new Date(post.updated_at)
+                                        .toLocaleDateString('en-US', { 
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                            weekday: 'long',
+                                            month: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric'
+                                        })}
+                                </span>
+                            </div>
+                            <p className="posts-description">
+                                {post.description}
+                            </p>
+                       </div>
+                    ))}
                 </div>
             </main>
             <Footer />

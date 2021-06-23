@@ -1,9 +1,7 @@
 .header {
     font-size: 20px;
     display: flex;
-    position:fixed;
-    z-index: 99;
-    background: rgba(0,0,0,0.5);
+    background: #1d1939;
     justify-content: space-between;
     width:100vw;
     height:fit-content;
@@ -11,11 +9,8 @@
     text-transform: none;
     transition: all 0.3s;
     padding: 5px;
-    /* box-shadow: 0px 0px 3px white; */
 }
-.header:hover{
-    background: rgba(0, 0, 0, 1);
-}
+
 .hidden {
     display: none;
 }
@@ -29,7 +24,7 @@
     padding:2px;
     opacity: 0.8;
     transition: all 0.3s;
-    transform:translateY(25%);
+    transform:translateY(12.5%);
 }
 
 .menu-nav {
@@ -41,17 +36,18 @@
     text-align: left;
     position:relative;
     left:0;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    border-radius: 5px;
 }
 
 .menu-nav .nav-li {
     font-size: 20px;
     padding: 5px;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    border-radius: 5px;
 }
 .menu-nav .nav-li:hover{
-    font-weight: bold;
-    background-color:rgb(40, 94, 91);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .header-login {
@@ -65,27 +61,24 @@
    border-radius: 5px;
    padding:5px;
    margin: 0 5px;
-   transition: all 0.3s;
+   transition: all 0.2s;
    background-color: rgba(0,0,0,0);
    border: 1px solid grey;
 }
 
 .drop-button {
-    font-size: 20px;
-    color: white;
-    transition: all 0.3s;
-    background-color: rgba(0,0,0,0);
-    border: none;
+    transition: all 0.2s;
+    opacity: 1;
 }
 
 .header-menu:hover .menu-nav{
     display:block;
     position: absolute;
-    background-color: black;
-    transition: all 0.3s;
+    background-color: #1d1939;
+    transition: all 0.2s;
 }
 .menu-wrapper {
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
 .button:hover {

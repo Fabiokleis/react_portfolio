@@ -6,25 +6,26 @@ export default function WelcomeSection(props){
 
     return (
         <div className="welcome-section">
-            <div className="welcome-wrapper">
-                <div className="static-text">_</div>
-                <ul className="whoami">
+                <div className="welcome-wrapper">
+                    <div className="static-text">_</div>
+                    <ul className="whoami">
                         <li><span>Javascript</span></li>
                         <li><span>Nodejs</span></li>
                         <li><span>Reactjs</span></li>
                         <li><span>Full-stack</span></li>
-                </ul>
-            </div>
+                    </ul>
+                </div>
                 <div className="welcome-text">
-               
+                
                     <p>I am
                     developer and linux system administration enthusiast. Learning Nodejs, Postgresql, Mongodb and React.
                     Visit my github!
                     </p>
 
                 </div>
+
                 <SubscribeForm />
-            
+
         </div>
     );
 }

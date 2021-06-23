@@ -4,7 +4,8 @@
 }
 .App {
     overflow-x: hidden;
-    background:linear-gradient(mediumslateblue, rgb(0, 0, 0));
+    /* background:linear-gradient(mediumslateblue, rgb(0, 0, 0)); */
+    background: linear-gradient(rgb(84, 71, 158), rgb(0,0,0));
     color: white;
     display:flex;
     height: 100vh;
