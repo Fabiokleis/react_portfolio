@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {logOutUser} from '../../actions/userActions';
-
+import pic from './user.svg';
 
 export default function HeaderLogin(){
     const dispatch = useDispatch();
@@ -19,6 +19,9 @@ export default function HeaderLogin(){
                 <button className={!loginState?"header-button button":"hidden"}>
                     <Link to="/signup" style={{textDecoration: 'none', color: 'white'}}>Sign up</Link>
                 </button>
+                <Link to="/profile">
+                    <img className={loginState?"profile-pic":"hidden"} src={pic} alt="user" />
+                </Link>
             </div>
     );
 }
