@@ -1,5 +1,4 @@
 .subscribe-form {
-    margin: 20px;
 }
 .subscribe-btn {
     padding: 10px;
@@ -24,7 +23,7 @@
     color:white;
     border:none;
     border-radius: 5px;
-    width: 350px;
+    width: 25vw;
     font-size: 15px;
     padding: 12px;
     background-color:rgba(0,0,0,0.7);

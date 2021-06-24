@@ -5,29 +5,45 @@
 
 .main-section {
     position: relative;
-    display: block;
-    padding-left: 30px;
-    padding-right: 30px;
-    width:100%;
-    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.future {
+    text-align: center;
+    font-size: 30px;
 }
 
 .middle-section {
-    position:relative;
-    width:95vw;
     display:flex;
-    align-items: center;
+    margin: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.welcome-section {
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    position: relative;
+    width: 55vw;
 }
 
 
-.welcome-section
-.whoami,
-.static-text,
-.projects-initializer {
-    font-size: 50px;
+.static-text{
+    font-size: 3vw;
     padding: 20px;
     margin-bottom: 20px;
     box-sizing:content-box;
+}
+
+.projects-initializer {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-align: center;
 }
 
 @keyframes typing {
@@ -45,7 +61,7 @@
 }
 
 .whoami {
-
+    font-size: 3vw;
     line-height:105px;
     margin-left: -30px;
     font-weight: bold;
@@ -53,11 +69,11 @@
     overflow:hidden;
     height:65px;
     top:-20px;
+    padding: 20px;
 }
 
 .welcome-section
 .welcome-wrapper {
-    margin-top: 50px;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -66,7 +82,8 @@
     box-shadow: 1px 1px 1px black;
     height:85px;
     border-radius: 10px;
-    padding: 20px;
+    margin: 20px 0;
+    width: max-content;
 }
 
 .welcome-section
@@ -102,7 +119,7 @@
 .welcome-section
 .static-text {
     color: lightgreen;
-    font-size: 60px;
+    font-size: 4vw;
     display:inline;
     font-weight: bold;
 }
@@ -110,16 +127,16 @@
 .welcome-section
 .welcome-text {
     font-size: 35px;
-    padding: 20px;
     border-radius: 3px;
-    width:70%;
+}
+
+.posts-container {
+    display:flex;
 }
 
 .cards-section {
     border-radius: 5px;
     box-sizing: border-box;
-    padding: 10px;
-    width: 60%;
     position: relative;
     display:flex;
     flex-direction: column;
@@ -180,7 +197,7 @@
 }
 
 .arrow-container-right{
-    right: 60px;
+    right: 0;
 }
 
 .arrow-container-right:hover,

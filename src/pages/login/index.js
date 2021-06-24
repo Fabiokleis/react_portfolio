@@ -66,7 +66,7 @@ export default function Signin(props){
         <>
             <Header />
             <main className="section-container">
-                <h1 className="title-center">Loggin your account</h1>
+                <h1 className="title-center">Login</h1>
 
                 <div className="info-container">
                     <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>

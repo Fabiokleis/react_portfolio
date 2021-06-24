@@ -96,7 +96,7 @@ function App() {
                 </UnLoggedRoute>
 
                 <UnLoggedRoute exact path="/new_password">
-                    <NewPassword></NewPassword>
+                    <NewPassword />
                 </UnLoggedRoute>
                 
                 <Route path="*">

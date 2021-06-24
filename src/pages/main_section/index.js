@@ -12,16 +12,19 @@ export default function MainSection(props){
         <Header />
         <main className="section-container">
             <div className="main-section">
-                <div><h1>in the near future come again! application in development</h1></div>
+                <h1 className="future">in the near future come again! application in development</h1>
+
                 <div className="middle-section">
                     <WelcomeSection />
+
                     <PostsSection />
                 </div>
-                <h1 className="projects-initializer">
-                    Projects
-                </h1>
+                <div>
+                    <h1 className="projects-initializer">
+                        Projects
+                    </h1>
                 <ProjectsSection />
-                
+                </div>            
             </div>
         </main>
         <Footer />
