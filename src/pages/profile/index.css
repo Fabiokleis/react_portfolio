@@ -29,7 +29,6 @@ input:focus {
 }
 
 #title {
-    width: 20vw;
     background-color: rgba(0,0,0,0);
     font-size: 25px;
     border:none;

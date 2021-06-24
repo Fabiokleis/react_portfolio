@@ -29,9 +29,9 @@ const combinedReducers = combineReducers(
 function getLoginState(){
     const saved_state = JSON.parse(localStorage.getItem('user_state'));
     if(saved_state){
-        return true;
+        return saved_state;
     }else {
-        return false;
+        return [];
     }
 }
 
