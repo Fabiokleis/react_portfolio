@@ -5,6 +5,10 @@
     display:flex;
 }
 
+.user-name {
+    color: royalblue;
+}
+
 .post-notification-message {
     position: absolute;
     right: 5%;
@@ -130,7 +134,7 @@ input:focus {
    padding: 20px;
    display:flex;
    flex-direction: column;
-   align-content: space-between;
+   align-content: space-around;
 }
 
 .user-name {

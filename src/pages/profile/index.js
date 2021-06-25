@@ -80,10 +80,10 @@ export default function Profile(props){
                         <img className="user-img" src="" alt="profile picture" />
                     </div>
                     <div className="user-credentials">
-                        <h3 className="user-name">@ {user.name}</h3>
+                        <h3 className="user-name">@{user.name}</h3>
                         <h4 className="user-email">{user.email}</h4>
                         <div className="user-bio">
-                            user bio...
+                            user bio... in near future!
                         </div> 
                     </div>
                </div>
