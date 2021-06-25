@@ -2,24 +2,38 @@
     flex: 1 0 auto;
 }
 
-.card-section {
-    display:block;
-    margin-top: 50px;
-    color: white;
+.posts-section {
+    margin-top: 5%;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
-.card-title {
-    font-size: 25px;
-    padding: 5px;
-}
-.card-container {
-    margin: auto;
-    margin-top: 10px;
-    height: max-content;
-    width: 60%;
-    background-color: rgba(0, 0, 0, 0.411);
-    border-radius: 5px;
+
+.post-container {
+    position: relative;
+    box-sizing: border-box;
     box-shadow: 1px 1px 4px black;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+    width: 80%;
+    height: 100px;
 }
-.card-container p {
-    padding: 10px;
+
+.post-header {
+    display:flex;
+    justify-content: space-between;
+}
+.post-title {
+    font-size: 25px;
+}
+
+.post-date {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.post-name {
+    color: royalblue;
+    font-size: 30px;
 }

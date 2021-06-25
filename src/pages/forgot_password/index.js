@@ -45,8 +45,9 @@ export default function ForgotPassword(props){
             const [data] = userEmailAndToken;
             if(reset_token === data.reset_token){
                 setLoading(true);
+                const id = data.id;
                 setTimeout(() => {
-                    verifyUserToken(e.target.action+"?"+querystring.stringify(data));
+                    verifyUserToken(e.target.action+"?"+querystring.stringify({id}));
                 }, 2000);
 
             }else{
@@ -75,8 +76,9 @@ export default function ForgotPassword(props){
                 if(data.message){
                     setMsg(data.message);
                     setTimeout(() => {setMsg(null);}, 5000);
+                }else{
+                    dispatch(saveUserForgotPassword(data));
                 }
-                dispatch(saveUserForgotPassword(data));
             }).catch(err => {
                 setLoading(false);
                 setMsg("Error on servers! try again later...");

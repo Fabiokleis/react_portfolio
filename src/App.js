@@ -3,7 +3,7 @@ import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import loginReducer from './reducers/loginReducer';
 import createUser from './reducers/createUserReducer';
-import './App.css';
+import postsReducer from './reducers/postsReducer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import MainSection from './pages/main_section';
 import Projects from './pages/projects';
@@ -11,13 +11,17 @@ import Signin from './pages/login';
 import Signup from './pages/register';
 import NewPassword from './pages/new_password';
 import CardSection from './pages/card_section';
+import Profile from './pages/profile';
 import ForgotPassword from './pages/forgot_password';
 import UnLoggedRoute from './components/unLoggedRoute';
+import LoggedRoute from './components/loggedRoute';
+import './App.css';
 
 const combinedReducers = combineReducers(
     {
         register: createUser,
-        login: loginReducer
+        login: loginReducer,
+        posts: postsReducer
 
     }
 )
@@ -25,9 +29,9 @@ const combinedReducers = combineReducers(
 function getLoginState(){
     const saved_state = JSON.parse(localStorage.getItem('user_state'));
     if(saved_state){
-        return true;
+        return saved_state;
     }else {
-        return false;
+        return [];
     }
 }
 
@@ -35,10 +39,26 @@ function setLoginState(user){
     localStorage.setItem('user_state', JSON.stringify(user));
 }
 
-const store = createStore(combinedReducers, {login: getLoginState()});
+
+function getPosts(){
+    const saved_posts = JSON.parse(localStorage.getItem('lasted_posts'));
+    if(saved_posts){
+        return saved_posts;
+    }else{
+        return [];
+    }
+
+}
+
+function setPosts(posts){
+    localStorage.setItem('lasted_posts', JSON.stringify(posts));
+}
+
+const store = createStore(combinedReducers, {login: getLoginState(), posts: getPosts()});
 
 store.subscribe(() => {
     setLoginState(store.getState().login);
+    setPosts(store.getState().posts);
 })
 
 
@@ -72,15 +92,19 @@ function App() {
                 <UnLoggedRoute exact path="/signup">
                     <Signup />
                 </UnLoggedRoute>
-
+          
                 <UnLoggedRoute exact path="/forgot_password">
                     <ForgotPassword />
                 </UnLoggedRoute>
 
                 <UnLoggedRoute exact path="/new_password">
-                    <NewPassword></NewPassword>
+                    <NewPassword />
                 </UnLoggedRoute>
                 
+                <LoggedRoute exact path="/profile">
+                    <Profile />
+                </LoggedRoute>
+
                 <Route path="*">
                     <div>not found 404</div>
                 </Route>

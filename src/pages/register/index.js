@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './index.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -48,7 +48,6 @@ export default function Signup(){
                     setMsg(data.message);
                     setTimeout(() => {setMsg(null)}, 4000);
                 }else{
-                    const {email} = data[0];
                     dispatch(createUser(data[0]));
 
                     return data[0];
@@ -95,7 +94,7 @@ export default function Signup(){
         <>
             <Header />
             <main className="section-container">
-                <h1 className="title-center">Create your account</h1>
+                <h1 className="title-center">Create account</h1>
 
                 <div className="info-container">
                     <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>

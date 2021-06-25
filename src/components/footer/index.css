@@ -3,20 +3,28 @@
     bottom: 0;
     width: 100%;
     display:flex;
-    justify-content: space-around;
-    background:rgba(0,0,0,0.6);
-    padding: 10px 0;
-    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #1d1939;
     border-top:1px solid rgba(255, 255, 255, 0.445);
-}
-.container {
-    margin-top:100px;
-    position: relative;
-    bottom: 0%;
 }
 .footer .footer-links {
     list-style: none;
-    font-weight: bold;
-    display:block; 
-    transition:all 0.3s;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-li {
+    transition:all 0.2s;
+    padding: 5px;
+    transform: scale(0.9);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.footer-li:hover {
+    transform: scale(1);
+    background: rgba(255, 255, 255, 0.2);
 }

@@ -1,0 +1,38 @@
+.card-title {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.card-name {
+    color: royalblue;
+    font-size: 15px;
+}
+.card-container {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px black;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+    display:flex;
+    flex-direction: column;
+    width: 25vw;
+}
+
+.card-header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-date {
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px;
+    font-size: 12px;
+}
+
+.card-description {
+    font-size: 15px;
+}
+
+
