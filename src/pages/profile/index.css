@@ -10,10 +10,42 @@
     padding:40px;
 }
 
+.user-last-posts {    
+    margin-top: 20px;
+    display:flex;
+    flex-direction: column;
+}
+
+.user-post {
+    display:flex; 
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.user-post-header {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+}
+
+.user-post-name {
+    color: royalblue;
+    font-size: 20px;
+}
+
+.user-post-date {
+    font-size: 15px;
+}
+
 .user-posts {
     margin: 50px;
-    width: 100vw;
-    height: max-content;;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 .newpost-container {
     border: 1px solid rgba(255, 255, 255, 0.5);
