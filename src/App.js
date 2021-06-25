@@ -11,8 +11,10 @@ import Signin from './pages/login';
 import Signup from './pages/register';
 import NewPassword from './pages/new_password';
 import CardSection from './pages/card_section';
+import Profile from './pages/profile';
 import ForgotPassword from './pages/forgot_password';
 import UnLoggedRoute from './components/unLoggedRoute';
+import LoggedRoute from './components/loggedRoute';
 import './App.css';
 
 const combinedReducers = combineReducers(
@@ -27,9 +29,9 @@ const combinedReducers = combineReducers(
 function getLoginState(){
     const saved_state = JSON.parse(localStorage.getItem('user_state'));
     if(saved_state){
-        return true;
+        return saved_state;
     }else {
-        return false;
+        return [];
     }
 }
 
@@ -90,7 +92,7 @@ function App() {
                 <UnLoggedRoute exact path="/signup">
                     <Signup />
                 </UnLoggedRoute>
-
+          
                 <UnLoggedRoute exact path="/forgot_password">
                     <ForgotPassword />
                 </UnLoggedRoute>
@@ -99,6 +101,10 @@ function App() {
                     <NewPassword />
                 </UnLoggedRoute>
                 
+                <LoggedRoute exact path="/profile">
+                    <Profile />
+                </LoggedRoute>
+
                 <Route path="*">
                     <div>not found 404</div>
                 </Route>

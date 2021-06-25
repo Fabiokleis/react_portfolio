@@ -94,7 +94,7 @@ export default function Signup(){
         <>
             <Header />
             <main className="section-container">
-                <h1 className="title-center">Create your account</h1>
+                <h1 className="title-center">Create account</h1>
 
                 <div className="info-container">
                     <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
