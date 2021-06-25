@@ -55,23 +55,26 @@
 }
 
 .user-post-date {
-
+    display:flex;
     font-size: 15px;
 }
 
 .user-posts {
-    margin: 50px;
+    margin: 30px 50px;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
+
 .newpost-container {
     border: 1px solid rgba(255, 255, 255, 0.5);
     display:flex;
     flex-direction:column;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
 }
 
 input:focus {
@@ -86,13 +89,18 @@ input:focus {
     color: white;
 }
 
-#description {
+.description {
     resize: none;
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: white;
     font-size: 15px;
+    border: none;
+}
+
+.description:focus {
+    outline: none;
 }
 
 .user-post-reqs {
