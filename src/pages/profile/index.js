@@ -11,7 +11,7 @@ export default function Profile(props){
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?'+"page=1");
+        getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?'+"page=1");
     }, [flag, user]);
 
     async function createPost(e){
@@ -88,7 +88,7 @@ export default function Profile(props){
                     </div>
                </div>
                <div className="user-posts">
-                    <form method="POST" action="http://127.0.0.1:3001/posts" onSubmit={createPost}> 
+                    <form method="POST" action="https://fabiokleis-api.herokuapp.com/posts" onSubmit={createPost}> 
                         <div className="newpost-container">
                             <input placeholder="title" required name="title" id="title" type="textarea" />
                             <input placeholder="description" required name="description" id="description" type="textarea" />
