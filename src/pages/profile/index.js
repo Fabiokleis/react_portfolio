@@ -2,6 +2,9 @@ import React,{useState, useEffect} from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import {useSelector} from 'react-redux';
+import edit from './edit.svg';
+import del from './x-circle.svg';
+import add from './check.svg';
 import './index.css';
 
 export default function Profile(props){ 
@@ -27,6 +30,26 @@ export default function Profile(props){
         setTimeout(() => {
             setMsg(null);
         }, 3000)
+    }
+
+    async function updatePost(id){
+        
+    }
+
+    async function deletePost(id){
+        fetch('http://127.0.0.1:3001/posts?id='+id, 
+            {
+                headers: {'Authorization': user.token},
+                method: 'DELETE'
+            }).then(res => res.json())
+            .then(data => {
+                setFlag(true);
+                if(data.message){
+                    setMsg(data.message);
+                }else{
+                    setFlag(true);               
+                }
+            }).catch(err => alert('error on server! try again later...'));
     }
 
     function getUserLastPosts(jwt, url){
@@ -88,16 +111,17 @@ export default function Profile(props){
                     </div>
                </div>
                <div className="user-posts">
-                    <form method="POST" action="http://127.0.0.1:3001/posts" onSubmit={createPost}> 
+                    <form method="POST" action="http://127.0.0.1:3001/posts" onSubmit={createPost} id="main-form"> 
                         <div className="newpost-container">
                             <input placeholder="title" required name="title" id="title" type="textarea" />
-                            <input placeholder="description" required name="description" id="description" type="textarea" />
-                            <button className="post-btn" type="submit">Post</button> 
+                            <textarea placeholder="description, max char 255" maxLength="255" required name="description" id="description" form="main-form"/>
+                            <button className="post-btn" type="submit"><img src={add} alt="check" /></button> 
                         </div>
                     </form>
                     <div className="user-last-posts">
                       {posts.map(post => (
                         <div className="user-post" key={post.id} >
+
                         <div className="user-post-header">  
                           <div className="user-post-name">
                             {"@"+post.name} 
@@ -112,11 +136,19 @@ export default function Profile(props){
                                 day:'numeric',
                                 hour: 'numeric',
                                 minute: 'numeric'}
-                            )} 
+                            )}
                           </div>
                         </div>
                         <div className="user-post-desc">
                           {post.description}
+                        </div>
+                        <div className="user-post-reqs">
+                            <div className="update-btn" onClick={() => updatePost(post.id)}>
+                                <img src={edit} alt="edit" />
+                            </div>
+                            <div className="delete-btn" onClick={() => deletePost(post.id)}>
+                                <img src={del} alt="delete" />
+                            </div>
                         </div>
                         </div>
                       ))}
