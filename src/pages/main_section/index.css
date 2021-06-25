@@ -8,13 +8,13 @@
     display: flex;
     flex-direction: column;
     margin-top: 100px;
+
 }
 
 .future {
     text-align: center;
     font-size: 30px;
 }
-
 .middle-section {
     display:flex;
     margin: 30px;

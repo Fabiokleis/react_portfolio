@@ -10,6 +10,7 @@ export default function Menu(props){
                 <Link to="/" style={{ textDecoration: 'none', color: 'white'}}>
                     <img src={home} alt="home" className="drop-button" />
                 </Link>
+=
                 <img className="arrow" alt="arrow-down" />
                 <ul className="menu-nav">
                     <Link to="/projects" style={{ textDecoration: 'none', color: 'white'}}>
