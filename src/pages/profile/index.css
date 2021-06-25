@@ -4,6 +4,19 @@
 .user-profile {
     display:flex;
 }
+
+.post-notification-message {
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    padding: 5px;
+    border-radius: 5px;
+    color: red;
+    background-color: #FFD2D2;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .user-container {
     display:flex;
     flex-direction: column;
@@ -53,7 +66,7 @@
     flex-direction:column;
     border-radius: 5px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 input:focus {
@@ -80,7 +93,7 @@ input:focus {
     align-self: flex-end;
     align-items: center;
     justify-content: center;
-    background-color: #1d1939;
+    background-color: rgba(173, 155, 253, 0.712);
     border: none;
     border-radius: 20px;
     width: 60px;
