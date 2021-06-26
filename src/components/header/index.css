@@ -17,20 +17,28 @@
 .header-menu {
     transition: all 0.3s;
     border-radius: 5px;
+    position: relative;
 }
+
+.header-login {
+    transition: all 0.3s;
+    margin-right: 20px;
+    display:flex;
+    position:relative;
+}
+
 .arrow {
     content: url('./chevron-down.svg');
-    padding:2px;
     opacity: 0.8;
     transition: all 0.3s;
-    transform:translateY(12.5%);
+    padding: 1px;
 }
 
 .menu-nav {
     list-style-type: none;
     display: none;
     padding: 5px;
-    width: 200px;
+    width: 150px;
     height: max-content;
     text-align: left;
     position:relative;
@@ -39,21 +47,26 @@
     border-radius: 5px;
 }
 
-.menu-nav .nav-li {
+.menu-nav-login{
+    list-style-type: none;
+    display: none;
+    padding: 5px;
+    width: 150px;
+    height: max-content;
+    transition: all 0.4s;
+    border-radius: 5px;
+}
+
+.nav-li {
     font-size: 20px;
     padding: 5px;
     transition: all 0.2s;
     border-radius: 5px;
+    cursor: pointer;
 }
-.menu-nav .nav-li:hover{
+.nav-li:hover{
     background-color: rgba(255, 255, 255, 0.2);
 }
-
-.header-login {
-    margin-right: 20px;
-    display:flex;
-}
-
 .header-login
 .header-button{
    font-size: 18px; 
@@ -78,6 +91,16 @@
     transition: all 0.4s;
 }
 
+
+.header-login:hover .menu-nav-login{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #1d1939;
+    transition: all 0.4s;
+    right: 0;
+}
+
 .menu-wrapper {
     transition: all 0.4s;
 }
@@ -97,6 +120,7 @@
     transition: all 0.2s;
     padding: 2px;
 }
+
 .profile-pic:hover {
    background-color: rgba(255,255,255, 0.2);
 }

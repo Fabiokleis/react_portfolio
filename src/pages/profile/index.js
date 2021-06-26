@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 import edit from './edit.svg';
 import del from './x-circle.svg';
 import add from './check.svg';
+import pic from './image.svg';
 import './index.css';
 
 export default function Profile(props){ 
@@ -14,11 +15,12 @@ export default function Profile(props){
     const [posts, setPosts] = useState([]);
     const [update, setUpdate] = useState(false);
     const [postId, setPostId] = useState(null);
-    const [load, setLoading] = useState(false);
+    const [createBio, setBio] = useState(null);
+    const [bioState, setBioState] = useState(false);
 
     useEffect(() => {
         getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?'+"page=1");
-    }, [flag, user, load]);
+    }, [flag, user]);
 
     function createPost(e){
         e.preventDefault();
@@ -32,7 +34,7 @@ export default function Profile(props){
         setFlag(false);
         setTimeout(() => {
             setMsg(null);
-        }, 3000)
+        }, 3000);
     }
 
     function updatePost(e){
@@ -72,6 +74,9 @@ export default function Profile(props){
         setPostId(id);
     }
 
+    function swapBioState(){
+        setBioState(true);
+    }
 
     function deletePost(id){
         fetch('https://fabiokleis-api.herokuapp.com/posts?id='+id, 
@@ -128,6 +133,34 @@ export default function Profile(props){
          }).catch(err => alert('error on servers! try again later...'));
     }
 
+    function saveBio(e){
+        e.preventDefault();
+        const bio = e.target.elements[0].value;
+        saveBioReq({bio}, user.token, e.target.action);
+        setBioState(false);
+        setTimeout(() => {
+            setMsg(null);
+        }, 3000);
+
+    }
+
+    function saveBioReq(data, jwt, url){
+        fetch(url, 
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": jwt
+                },
+                body: JSON.stringify(data)
+            }).then(res => res.json()).then(obj => {
+                if(obj.message){
+                    setMsg(obj.message);
+                }else{
+                    setBio(obj);
+                }
+            }).catch(err => alert("error on servers! try again later..."));
+    }
 
     return (
         <>
@@ -139,13 +172,25 @@ export default function Profile(props){
                 </div>
                 <div className="user-container">
                     <div className="img-container">
-                        <img className="user-img" src="" alt="profile" />
+                        <img className="user-img" src={pic} alt="profile" />
                     </div>
                     <div className="user-credentials">
                         <h3 className="user-name">@{user.name}</h3>
                         <h4 className="user-email">{user.email}</h4>
                         <div className="user-bio">
-                            user bio... in near future!
+                             <form className={bioState?"":"hidden"} action='https://fabiokleis-api.herokuapp.com/users/bio' id="bio-form" onSubmit={saveBio}>
+                                 <div className="bio-container">
+                                     <textarea placeholder="create bio, max char 255" maxLength="255" 
+                                     required name="bio" className="bio-textarea" form="bio-form"/>
+                                     <button className="update-bio-btn" type="submit"><img src={add} alt="check" /></button> 
+                                 </div>
+                            </form>
+                            <div className={!bioState?"bio-container":"hidden"}>
+                                <textarea className="bio-textarea" value={createBio} disabled />
+                            </div>
+                            <button className={!bioState?"update-bio-btn":"hidden"} onClick={swapBioState}>
+                                <img src={edit} alt="edit bio" />
+                            </button>
                         </div> 
                     </div>
                </div>
@@ -161,8 +206,7 @@ export default function Profile(props){
                     <form className={update?"":"hidden"} action='https://fabiokleis-api.herokuapp.com/posts' id="update-form" onSubmit={(e) => updatePost(e)}>
                          <div className="newpost-container">
                              <input placeholder="update title" required name="title" id="title" type="textarea" />
-                             <textarea placeholder="update description, max char 255" maxLength="255" 
-                             required name="description" className="description" form="update-form"/>               
+                             <textarea placeholder="update description, max char 255" maxLength="255" required name="description" className="description" form="update-form"/>               
                              <button className="post-btn" type="submit"><img src={add} alt="check" /></button> 
                          </div>
                     </form>
