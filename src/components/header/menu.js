@@ -1,17 +1,19 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import home from './home.svg';
+import menu from './menu.svg';
 
 export default function Menu(props){
 
     return (
         <div className="header-menu">
             <div className="menu-wrapper">
-                <Link to="/" style={{ textDecoration: 'none', color: 'white'}}>
-                    <img src={home} alt="home" className="drop-button" />
-                </Link>
+                <img src={menu} alt="menu" className="drop-button" />
+
                 <img className="arrow" alt="arrow-down" />
                 <ul className="menu-nav">
+                <Link to="/" style={{ textDecoration: 'none', color: 'white'}}>
+                <li className="nav-li">Home</li>
+                </Link>
                     <Link to="/projects" style={{ textDecoration: 'none', color: 'white'}}>
                         <li className="nav-li">Projects</li>
                     </Link>

@@ -11,18 +11,25 @@ export default function HeaderLogin(){
 
     return (
             <div className="header-login">
-                <button onClick={() => dispatch(logOutUser())} className={loginState?"header-button button":"hidden"}>
-                    <Link to="/signin" style={{textDecoration: 'none', color: 'white'}}>log out</Link>
-                </button>
+                <div className={loginState?"menu-wrapper":"hidden"}>
+                    <img className={loginState?"profile-pic":"hidden"} src={pic} alt="user" />
+                    <img className="arrow" alt="arrow-down" />
+                    <ul className="menu-nav-login">
+                        <Link to="/profile" style={{ textDecoration: 'none', color: 'white'}}>
+                            <li className="nav-li">Profile</li>
+                        </Link>
+
+                        <li onClick={() => dispatch(logOutUser())}className="nav-li">logout</li>
+                    </ul>
+                </div>
+
                 <button className={!loginState?"header-button button":"hidden"}>
                     <Link to="/signin" style={{textDecoration: 'none', color: 'white'}}>Sign in</Link>
                 </button>
                 <button className={!loginState?"header-button button":"hidden"}>
                     <Link to="/signup" style={{textDecoration: 'none', color: 'white'}}>Sign up</Link>
                 </button>
-                <Link to="/profile">
-                    <img className={loginState?"profile-pic":"hidden"} src={pic} alt="user" />
-                </Link>
+
             </div>
     );
 }
