@@ -14,11 +14,11 @@ export default function Profile(props){
     const [posts, setPosts] = useState([]);
     const [update, setUpdate] = useState(false);
     const [postId, setPostId] = useState(null);
-
+    const [load, setLoading] = useState(false);
 
     useEffect(() => {
         getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?'+"page=1");
-    }, [flag, user]);
+    }, [flag, user, load]);
 
     function createPost(e){
         e.preventDefault();
@@ -26,9 +26,9 @@ export default function Profile(props){
         const title = e.target.elements[0].value;
         const description = e.target.elements[1].value;
         const data = {title, description};
-        createPostReq(data, user.token, url);
         e.target.elements[0].value = "";
         e.target.elements[1].value = "";
+        createPostReq(data, user.token, url);
         setFlag(false);
         setTimeout(() => {
             setMsg(null);
@@ -40,7 +40,9 @@ export default function Profile(props){
         const title = e.target.elements[0].value;
         const description = e.target.elements[1].value;
         const data = {title, description};
-  
+        e.target.elements[0].value = "";
+        e.target.elements[1].value = "";
+
         fetch(e.target.action+"?id="+postId,
             {
                 method: 'PUT',
@@ -102,6 +104,7 @@ export default function Profile(props){
                     setPosts(data);
                 }
             }).catch(err => alert('error on servers! try again later...'));
+
     }
 
     function createPostReq(data, jwt, url){
@@ -123,7 +126,6 @@ export default function Profile(props){
                 return data;
             }
          }).catch(err => alert('error on servers! try again later...'));
-
     }
 
 
@@ -151,7 +153,8 @@ export default function Profile(props){
                     <form method="POST" action="http://127.0.0.1:3001/posts" onSubmit={createPost} id="main-form"> 
                         <div className="newpost-container">
                             <input placeholder="title" required name="title" id="title" type="textarea" />
-                            <textarea placeholder="description, max char 255" maxLength="255" required name="description" className="description" form="main-form"/>
+                            <textarea placeholder="description, max char 255" maxLength="255" 
+                            required name="description" className="description" form="main-form"/>
                             <button className="post-btn" type="submit"><img src={add} alt="check" /></button> 
                         </div>
                     </form>

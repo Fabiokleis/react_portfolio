@@ -124,6 +124,7 @@ input:focus {
     box-shadow: 1px 1px 2px black;
     width: 45px;
     height: 30px;
+    cursor: pointer;
 }
 
 .delete-btn {
@@ -141,10 +142,12 @@ input:focus {
     box-shadow: 1px 1px 2px black;
     width: 45px;
     height: 30px;
+    cursor: pointer;
 }
 
 
 .post-btn {
+    display:flex;
     display:flex;
     align-self: flex-end;
     align-items: center;
@@ -161,7 +164,6 @@ input:focus {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
-    box-shadow: 1px 1px 2px black;
 }
 
 .update-btn:hover {
