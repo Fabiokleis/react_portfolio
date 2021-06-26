@@ -74,7 +74,7 @@ export default function Profile(props){
 
 
     function deletePost(id){
-        fetch('http://127.0.0.1:3001/posts?id='+id, 
+        fetch('https://fabiokleis-api.herokuapp.com/posts?id='+id, 
             {
                 headers: {'Authorization': user.token},
                 method: 'DELETE'
