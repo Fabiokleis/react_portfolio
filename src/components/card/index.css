@@ -6,6 +6,7 @@
 .card-name {
     color: royalblue;
     font-size: 15px;
+
 }
 .card-container {
     position: relative;
@@ -33,6 +34,7 @@
 
 .card-description {
     font-size: 15px;
+
 }
 
 
