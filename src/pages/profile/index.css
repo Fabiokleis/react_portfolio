@@ -232,7 +232,6 @@ input:focus {
 .bio-textarea {
     position: relative;
     resize: none;
-    margin-top: 20px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: white;
@@ -256,12 +255,12 @@ input:focus {
     border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 10px;
     width: 260px;
-    height: 200px;
+    height: 160px;
 }
 
 .bio-container {
     position: relative;
-    height: 100%;
+    top:0;
     overflow: hidden;
     display:flex;
     flex-direction:column;
