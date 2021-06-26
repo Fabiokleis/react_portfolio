@@ -115,16 +115,12 @@ export default function NewPassword() {
                <h3 className={msg?"notification-msg":"hidden"}>{msg}</h3>
             </div>
             <div className="signin-section">
-            
-                <form onSubmit={(e) => handlerSub(e)} method="POST" action="http://127.0.0.1:3001/users/new_password" className="signin-form">
-                    <div className="password-section">
-                        <label className="signin-label">New Password <span className="star">*</span></label>
-                        <img src={hide} alt="eye" onClick={swapImg} className="first-img"/>
-                        <input onChange={handlerPasswd} required name="password" id="password" className="signin-input" type="password"></input>
-                        <img src={hide} alt="eye" onClick={swapImg2} className="sec-img" />
-                        <label className="signin-label">Confirm Password <span className="star">*</span></label>
-                        <input onChange={handlerConfirmPasswd} required name="confirm-password" id="confirm-password" className="signin-input" type="password"></input>
-                    </div>
+
+                <form onSubmit={(e) => handlerSub(e)} method="POST" action="https://fabiokleis-api.herokuapp.com/users/new_password" className="signin-form">
+                    <label className="signin-label">New Password <span className="star">*</span></label>
+                    <input onChange={handlerPasswd} required name="password" id="password" className="signin-input" type="password"></input>
+                    <label className="signin-label">Confirm Password <span className="star">*</span></label>
+                    <input onChange={handlerConfirmPasswd} required name="confirm-password" id="confirm-password" className="signin-input" type="password"></input>
                     <LoadScreen flag={flag} text={'Recreate'} />
                 </form>
             </div>

@@ -79,7 +79,7 @@ export default function Profile(props){
     }
 
     function deletePost(id){
-        fetch('http://127.0.0.1:3001/posts?id='+id, 
+        fetch('https://fabiokleis-api.herokuapp.com/posts?id='+id, 
             {
                 headers: {'Authorization': user.token},
                 method: 'DELETE'
@@ -191,7 +191,7 @@ export default function Profile(props){
                     </div>
                </div>
                <div className="user-posts">
-                    <form method="POST" action="http://127.0.0.1:3001/posts" onSubmit={createPost} id="main-form"> 
+                    <form method="POST" action="https://fabiokleis-api.herokuapp.com/posts" onSubmit={createPost} id="main-form"> 
                         <div className="newpost-container">
                             <input placeholder="title" required name="title" id="title" type="textarea" />
                             <textarea placeholder="description, max char 255" maxLength="255" 
@@ -199,7 +199,7 @@ export default function Profile(props){
                             <button className="post-btn" type="submit"><img src={add} alt="check" /></button> 
                         </div>
                     </form>
-                    <form className={update?"":"hidden"} action='http://127.0.0.1:3001/posts' id="update-form" onSubmit={(e) => updatePost(e)}>
+                    <form className={update?"":"hidden"} action='https://fabiokleis-api.herokuapp.com/posts' id="update-form" onSubmit={(e) => updatePost(e)}>
                          <div className="newpost-container">
                              <input placeholder="update title" required name="title" id="title" type="textarea" />
                              <textarea placeholder="update description, max char 255" maxLength="255" required name="description" className="description" form="update-form"/>               

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {logOutUser} from '../../actions/userActions';
 import pic from './user.svg';
+import menuIcon from './menu.svg';
 
 export default function HeaderLogin(){
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function HeaderLogin(){
                         <li onClick={() => dispatch(logOutUser())}className="nav-li">logout</li>
                     </ul>
                 </div>
+
                 <button className={!loginState?"header-button button":"hidden"}>
                     <Link to="/signin" style={{textDecoration: 'none', color: 'white'}}>Sign in</Link>
                 </button>
