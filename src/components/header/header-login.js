@@ -9,7 +9,7 @@ export default function HeaderLogin(){
     const loginState = useSelector(state => state.login);
 
     return (
-            <div className={"header-login "}>
+            <div className="header-login">
                 <button onClick={() => dispatch(logOutUser())} className={loginState?"header-button button":"hidden"}>
                     <Link to="/signin" style={{textDecoration: 'none', color: 'white'}}>log out</Link>
                 </button>

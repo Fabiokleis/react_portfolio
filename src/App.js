@@ -31,7 +31,7 @@ function getLoginState(){
     if(saved_state){
         return saved_state;
     }else {
-        return [];
+        return false;
     }
 }
 
