@@ -19,7 +19,7 @@ export default function Profile(props){
     const [bioState, setBioState] = useState(false);
 
     useEffect(() => {
-        getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?'+"page=1");
+        getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?'+"page=1");
     }, [flag, user]);
 
     function createPost(e){
@@ -34,7 +34,7 @@ export default function Profile(props){
         setFlag(false);
         setTimeout(() => {
             setMsg(null);
-        }, 3000)
+        }, 3000);
     }
 
     function updatePost(e){
@@ -138,6 +138,10 @@ export default function Profile(props){
         const bio = e.target.elements[0].value;
         saveBioReq({bio}, user.token, e.target.action);
         setBioState(false);
+        setTimeout(() => {
+            setMsg(null);
+        }, 3000);
+
     }
 
     function saveBioReq(data, jwt, url){
@@ -155,7 +159,7 @@ export default function Profile(props){
                 }else{
                     setBio(obj);
                 }
-            }).catch(err => alert(err));
+            }).catch(err => alert("error on servers! try again later..."));
     }
 
     return (
@@ -174,7 +178,7 @@ export default function Profile(props){
                         <h3 className="user-name">@{user.name}</h3>
                         <h4 className="user-email">{user.email}</h4>
                         <div className="user-bio">
-                             <form className={bioState?"":"hidden"} action='http://127.0.0.1:3001/users/bio' id="bio-form" onSubmit={saveBio}>
+                             <form className={bioState?"":"hidden"} action='https://fabiokleis-api.herokuapp.com/users/bio' id="bio-form" onSubmit={saveBio}>
                                  <div className="bio-container">
                                      <textarea placeholder="create bio, max char 255" maxLength="255" 
                                      required name="bio" className="bio-textarea" form="bio-form"/>
