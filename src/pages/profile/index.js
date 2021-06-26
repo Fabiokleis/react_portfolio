@@ -15,7 +15,6 @@ export default function Profile(props){
     const [posts, setPosts] = useState([]);
     const [update, setUpdate] = useState(false);
     const [postId, setPostId] = useState(null);
-    const [load, setLoading] = useState(false);
 
     useEffect(() => {
         getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?'+"page=1");
