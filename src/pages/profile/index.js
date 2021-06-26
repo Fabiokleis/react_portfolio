@@ -17,7 +17,7 @@ export default function Profile(props){
     const [load, setLoading] = useState(false);
 
     useEffect(() => {
-        getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?'+"page=1");
+        getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?'+"page=1");
     }, [flag, user, load]);
 
     function createPost(e){
@@ -150,7 +150,7 @@ export default function Profile(props){
                     </div>
                </div>
                <div className="user-posts">
-                    <form method="POST" action="http://127.0.0.1:3001/posts" onSubmit={createPost} id="main-form"> 
+                    <form method="POST" action="https://fabiokleis-api.herokuapp.com/posts" onSubmit={createPost} id="main-form"> 
                         <div className="newpost-container">
                             <input placeholder="title" required name="title" id="title" type="textarea" />
                             <textarea placeholder="description, max char 255" maxLength="255" 
@@ -158,7 +158,7 @@ export default function Profile(props){
                             <button className="post-btn" type="submit"><img src={add} alt="check" /></button> 
                         </div>
                     </form>
-                    <form className={update?"":"hidden"} action='http://127.0.0.1:3001/posts' id="update-form" onSubmit={(e) => updatePost(e)}>
+                    <form className={update?"":"hidden"} action='https://fabiokleis-api.herokuapp.com/posts' id="update-form" onSubmit={(e) => updatePost(e)}>
                          <div className="newpost-container">
                              <input placeholder="update title" required name="title" id="title" type="textarea" />
                              <textarea placeholder="update description, max char 255" maxLength="255" 
