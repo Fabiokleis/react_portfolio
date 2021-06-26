@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux';
 import edit from './edit.svg';
 import del from './x-circle.svg';
 import add from './check.svg';
+import pic from './image.svg';
 import './index.css';
 
 export default function Profile(props){ 
@@ -139,7 +140,7 @@ export default function Profile(props){
                 </div>
                 <div className="user-container">
                     <div className="img-container">
-                        <img className="user-img" src="" alt="profile" />
+                        <img className="user-img" src={pic} alt="profile" />
                     </div>
                     <div className="user-credentials">
                         <h3 className="user-name">@{user.name}</h3>
