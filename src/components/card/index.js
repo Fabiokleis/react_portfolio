@@ -1,19 +1,20 @@
-import React,{useEffect} from 'react';
-import {getLastedPosts} from '../../actions/postsAction';
-import {useDispatch, useSelector} from 'react-redux';
-import Card from './card.js';
+import React,{useState, useEffect} from 'react';
+import {getTotalCount} from '../../actions/headersActions';
+import {useDispatch} from 'react-redux';
 
-export default function Cards({page}){
+export default function Cards({page, Component}){
+    const [posts, setPosts] = useState([]);
     const dispatch = useDispatch();
-    const posts = useSelector(state => state.posts);
+
     const getPosts = (url) => {
         return fetch(url, {method: 'GET'})
-                .then(res => res.json())
-                .then(data => {
-                    dispatch(getLastedPosts(data));
-                }).catch(err => alert('Error on servers! try again later.'));
+                .then(res => {
+                    const count = res.headers.get('X-Total-Count');
+                    dispatch(getTotalCount(count));
+                    return res.json();
+                }).then(data => setPosts(data))
+                .catch(err => alert('Error on servers! try again later.'));
     }
-
     useEffect(() => {
         getPosts('http://localhost:3001/posts?page='+page);
     }, [page]);
@@ -21,10 +22,8 @@ export default function Cards({page}){
     return (
         <>
           {posts.map((post, index) => (
-            <Card key={post.id} post={post} />
+            <Component key={post.id} post={post} />
           ))}
         </>
     );
 }
-    
-

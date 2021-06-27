@@ -140,6 +140,9 @@ export default function Profile(props){
         const bio = e.target.elements[0].value;
         saveBioReq({bio}, user.token, e.target.action);
         setBioState(false);
+        setTimeout(() => {
+            setMsg(null);
+        }, 3000);
     }
 
     function saveBioReq(data, jwt, url){

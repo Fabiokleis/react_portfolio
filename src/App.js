@@ -39,26 +39,10 @@ function setLoginState(user){
     localStorage.setItem('user_state', JSON.stringify(user));
 }
 
-
-function getPosts(){
-    const saved_posts = JSON.parse(localStorage.getItem('lasted_posts'));
-    if(saved_posts){
-        return saved_posts;
-    }else{
-        return [];
-    }
-
-}
-
-function setPosts(posts){
-    localStorage.setItem('lasted_posts', JSON.stringify(posts));
-}
-
-const store = createStore(combinedReducers, {login: getLoginState(), posts: getPosts()});
+const store = createStore(combinedReducers, {login: getLoginState()});
 
 store.subscribe(() => {
     setLoginState(store.getState().login);
-    setPosts(store.getState().posts);
 })
 
 
