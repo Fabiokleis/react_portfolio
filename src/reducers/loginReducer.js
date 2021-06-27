@@ -7,6 +7,9 @@ export default function loginReducer(state=null, action){
             return state;
         case 'LOGOUT_USER':
             return state = false;
+        case 'SET_BIO':
+            state.bio = action.payload[0];
+            return state;
         default:
             return state;
     }

@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoginBio} from '../../actions/userActions';
 import edit from './edit.svg';
 import del from './x-circle.svg';
 import add from './check.svg';
@@ -10,12 +11,13 @@ import './index.css';
 
 export default function Profile(props){ 
     const user = useSelector(state => state.login);
+    const dispatch = useDispatch();
     const [msg, setMsg] = useState(null);
     const [flag, setFlag] = useState(false);
     const [posts, setPosts] = useState([]);
     const [update, setUpdate] = useState(false);
     const [postId, setPostId] = useState(null);
-    const [createBio, setBio] = useState(null);
+    const [createBio, setBio] = useState("");
     const [bioState, setBioState] = useState(false);
 
     useEffect(() => {
@@ -154,6 +156,7 @@ export default function Profile(props){
                     setMsg(obj.message);
                 }else{
                     setBio(obj);
+                    dispatch(setLoginBio(obj));
                 }
             }).catch(err => alert(err));
     }
@@ -182,7 +185,7 @@ export default function Profile(props){
                                  </div>
                             </form>
                             <div className={!bioState?"bio-container":"hidden"}>
-                                <textarea className="bio-textarea" value={createBio} disabled />
+                                <textarea className="bio-textarea" value={createBio?createBio:user.bio} disabled />
                             </div>
                             <button className={!bioState?"update-bio-btn":"hidden"} onClick={swapBioState}>
                                 <img src={edit} alt="edit bio" />
