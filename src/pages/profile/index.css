@@ -5,6 +5,12 @@
     display:flex;
 }
 
+.summary-wrap {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .user-name {
     color: royalblue;
 }
