@@ -1,0 +1,47 @@
+.page-number {
+    padding: 5px;
+    transform: scale(0.95);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.page-number:hover {
+    background-color: royalblue;
+    transform: scale(1);
+}
+
+.left-arrow-page {
+    padding: 5px;
+    transform: scale(0.95);
+    cursor: pointer;
+    transition: all 0.2s;
+
+}
+
+.right-arrow-page {
+    padding: 5px;
+    transform: scale(0.95);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.left-arrow-page:hover {
+    background-color: lightgreen;
+    transform: scale(1);
+}
+
+.right-arrow-page:hover {
+    background-color: lightgreen;
+    transform: scale(1);
+ }
+
+.summary-container {
+    display:flex;
+    width: max-content;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+

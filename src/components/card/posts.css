@@ -2,14 +2,6 @@
     flex: 1 0 auto;
 }
 
-.current-page {
-    margin-bottom: 10px;
-    background-color: royalblue;
-    padding: 2px;
-    border-radius: 5px;
-    border: 1px solid white;
-}
-
 .posts-section {
     margin-top: 5%;
     box-sizing: border-box;
@@ -44,5 +36,4 @@
 .post-name {
     color: royalblue;
     font-size: 30px;
-
 }

@@ -2,8 +2,7 @@ import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
-
-export default function UnLoggedRoute({children, ...rest}){
+export default function UnSafeRoute({children, ...rest}){
 
     const loginState = useSelector(state => state.login);
 

@@ -1,7 +1,10 @@
 import React,{useState, useEffect} from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import {useSelector} from 'react-redux';
+import Summary from '../../components/summary';
+import {useDispatch, useSelector} from 'react-redux';
+import {setLoginBio} from '../../actions/userActions';
+import {getTotalCount} from '../../actions/headersActions.js';
 import edit from './edit.svg';
 import del from './x-circle.svg';
 import add from './check.svg';
@@ -10,17 +13,44 @@ import './index.css';
 
 export default function Profile(props){ 
     const user = useSelector(state => state.login);
+    const total = useSelector(state => state.posts);
+    const pages = Math.ceil(total/5);    
+    const [page, setPage] = useState(1);
+    const pages_array = [];
+
+    for(let i = 1; i <= pages; i++){
+        pages_array.push(i);
+    }
+
+
+    const dispatch = useDispatch();
     const [msg, setMsg] = useState(null);
     const [flag, setFlag] = useState(false);
     const [posts, setPosts] = useState([]);
     const [update, setUpdate] = useState(false);
     const [postId, setPostId] = useState(null);
-    const [createBio, setBio] = useState(null);
+    const [createBio, setBio] = useState("");
     const [bioState, setBioState] = useState(false);
 
+    function updatePageNumber(p){
+        setPage(p);
+    }
+
+    function decrement(){
+        if(page > 1){
+            setPage(page - 1);
+        }
+    }
+
+    function increment(){
+        if(page < pages){
+            setPage(page + 1)
+        }
+    }
+
     useEffect(() => {
-        getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?'+"page=1");
-    }, [flag, user]);
+        getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?page='+page);
+    }, [flag, user, page]);
 
     function createPost(e){
         e.preventDefault();
@@ -102,7 +132,11 @@ export default function Profile(props){
             {
                 headers: {'Authorization': jwt},
                 method: 'GET'
-            }).then(res => res.json()).then(data => {
+            }).then(res => {
+                const count = res.headers.get('X-Total-Count');
+                dispatch(getTotalCount(count));
+                return res.json();
+            }).then(data => {
                 if(data.message){
                     setMsg(data.message);
                 }else{
@@ -158,6 +192,7 @@ export default function Profile(props){
                     setMsg(obj.message);
                 }else{
                     setBio(obj);
+                    dispatch(setLoginBio(obj));
                 }
             }).catch(err => alert("error on servers! try again later..."));
     }
@@ -186,7 +221,7 @@ export default function Profile(props){
                                  </div>
                             </form>
                             <div className={!bioState?"bio-container":"hidden"}>
-                                <textarea className="bio-textarea" value={createBio} disabled />
+                                <textarea className="bio-textarea" value={createBio?createBio:user.bio} disabled />
                             </div>
                             <button className={!bioState?"update-bio-btn":"hidden"} onClick={swapBioState}>
                                 <img src={edit} alt="edit bio" />
@@ -250,6 +285,9 @@ export default function Profile(props){
                     </div>
                 </div>
 
+            </div>
+            <div className="summary-wrap">
+                <Summary updatePageNumber={updatePageNumber} pages_array={pages_array} decrement={decrement} increment={increment} />
             </div>
         </main>
         <Footer />

@@ -13,8 +13,8 @@ import NewPassword from './pages/new_password';
 import CardSection from './pages/card_section';
 import Profile from './pages/profile';
 import ForgotPassword from './pages/forgot_password';
-import UnLoggedRoute from './components/unLoggedRoute';
-import LoggedRoute from './components/loggedRoute';
+import UnSafeRoute from './components/unSafeRoute';
+import SafeRoute from './components/safeRoute';
 import './App.css';
 
 const combinedReducers = combineReducers(
@@ -39,26 +39,10 @@ function setLoginState(user){
     localStorage.setItem('user_state', JSON.stringify(user));
 }
 
-
-function getPosts(){
-    const saved_posts = JSON.parse(localStorage.getItem('lasted_posts'));
-    if(saved_posts){
-        return saved_posts;
-    }else{
-        return [];
-    }
-
-}
-
-function setPosts(posts){
-    localStorage.setItem('lasted_posts', JSON.stringify(posts));
-}
-
-const store = createStore(combinedReducers, {login: getLoginState(), posts: getPosts()});
+const store = createStore(combinedReducers, {login: getLoginState()});
 
 store.subscribe(() => {
     setLoginState(store.getState().login);
-    setPosts(store.getState().posts);
 })
 
 
@@ -85,25 +69,25 @@ function App() {
                     <Projects />
                 </Route>
 
-                <UnLoggedRoute exact path="/signin">
+                <UnSafeRoute exact path="/signin">
                     <Signin />
-                </UnLoggedRoute>
+                </UnSafeRoute>
 
-                <UnLoggedRoute exact path="/signup">
+                <UnSafeRoute exact path="/signup">
                     <Signup />
-                </UnLoggedRoute>
+                </UnSafeRoute>
           
-                <UnLoggedRoute exact path="/forgot_password">
+                <UnSafeRoute exact path="/forgot_password">
                     <ForgotPassword />
-                </UnLoggedRoute>
+                </UnSafeRoute>
 
-                <UnLoggedRoute exact path="/new_password">
+                <UnSafeRoute exact path="/new_password">
                     <NewPassword />
-                </UnLoggedRoute>
+                </UnSafeRoute>
                 
-                <LoggedRoute exact path="/profile">
+                <SafeRoute exact path="/profile">
                     <Profile />
-                </LoggedRoute>
+                </SafeRoute>
 
                 <Route path="*">
                     <div>not found 404</div>
