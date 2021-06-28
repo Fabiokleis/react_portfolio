@@ -49,7 +49,7 @@ export default function Profile(props){
     }
 
     useEffect(() => {
-        getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?page='+page);
+        getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?page='+page);
     }, [flag, user, page]);
 
     function createPost(e){
@@ -64,7 +64,7 @@ export default function Profile(props){
         setFlag(false);
         setTimeout(() => {
             setMsg(null);
-        }, 3000)
+        }, 3000);
     }
 
     function updatePost(e){
@@ -109,7 +109,7 @@ export default function Profile(props){
     }
 
     function deletePost(id){
-        fetch('http://127.0.0.1:3001/posts?id='+id, 
+        fetch('https://fabiokleis-api.herokuapp.com/posts?id='+id, 
             {
                 headers: {'Authorization': user.token},
                 method: 'DELETE'
@@ -175,6 +175,7 @@ export default function Profile(props){
         setTimeout(() => {
             setMsg(null);
         }, 3000);
+
     }
 
     function saveBioReq(data, jwt, url){
@@ -193,7 +194,7 @@ export default function Profile(props){
                     setBio(obj);
                     dispatch(setLoginBio(obj));
                 }
-            }).catch(err => alert(err));
+            }).catch(err => alert("error on servers! try again later..."));
     }
 
     return (
@@ -212,7 +213,7 @@ export default function Profile(props){
                         <h3 className="user-name">@{user.name}</h3>
                         <h4 className="user-email">{user.email}</h4>
                         <div className="user-bio">
-                             <form className={bioState?"":"hidden"} action='http://127.0.0.1:3001/users/bio' id="bio-form" onSubmit={saveBio}>
+                             <form className={bioState?"":"hidden"} action='https://fabiokleis-api.herokuapp.com/users/bio' id="bio-form" onSubmit={saveBio}>
                                  <div className="bio-container">
                                      <textarea placeholder="create bio, max char 255" maxLength="255" 
                                      required name="bio" className="bio-textarea" form="bio-form"/>
@@ -229,7 +230,7 @@ export default function Profile(props){
                     </div>
                </div>
                <div className="user-posts">
-                    <form method="POST" action="http://127.0.0.1:3001/posts" onSubmit={createPost} id="main-form"> 
+                    <form method="POST" action="https://fabiokleis-api.herokuapp.com/posts" onSubmit={createPost} id="main-form"> 
                         <div className="newpost-container">
                             <input placeholder="title" required name="title" id="title" type="textarea" />
                             <textarea placeholder="description, max char 255" maxLength="255" 
@@ -237,7 +238,7 @@ export default function Profile(props){
                             <button className="post-btn" type="submit"><img src={add} alt="check" /></button> 
                         </div>
                     </form>
-                    <form className={update?"":"hidden"} action='http://127.0.0.1:3001/posts' id="update-form" onSubmit={(e) => updatePost(e)}>
+                    <form className={update?"":"hidden"} action='https://fabiokleis-api.herokuapp.com/posts' id="update-form" onSubmit={(e) => updatePost(e)}>
                          <div className="newpost-container">
                              <input placeholder="update title" required name="title" id="title" type="textarea" />
                              <textarea placeholder="update description, max char 255" maxLength="255" required name="description" className="description" form="update-form"/>               
