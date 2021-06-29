@@ -7,11 +7,11 @@ import pic from './user.svg';
 export default function HeaderLogin(){
     const dispatch = useDispatch();
     const loginState = useSelector(state => state.login);
-
+    
     return (
             <div className="header-login">
                 <div className={loginState?"menu-wrapper":"hidden"}>
-                    <img className={loginState?"profile-pic":"hidden"} src={pic} alt="user" />
+                        <img className={loginState?"profile-pic":"hidden"} width="24px" height="24px" src={!loginState.img?pic:loginState.img} alt="user" />
                     <img className="arrow" alt="arrow-down" />
                     <ul className="menu-nav-login">
                         <Link to="/profile" style={{ textDecoration: 'none', color: 'white'}}>

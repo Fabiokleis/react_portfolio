@@ -3,12 +3,12 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Summary from '../../components/summary';
 import {useDispatch, useSelector} from 'react-redux';
-import {setLoginBio} from '../../actions/userActions';
+import {setLoginBio, setUserImgName} from '../../actions/userActions';
 import {getTotalCount} from '../../actions/headersActions.js';
 import edit from './edit.svg';
 import del from './x-circle.svg';
 import add from './check.svg';
-import pic from './image.svg';
+import pic from './upload.svg';
 import './index.css';
 
 export default function Profile(props){ 
@@ -17,13 +17,11 @@ export default function Profile(props){
     const pages = Math.ceil(total/5);    
     const [page, setPage] = useState(1);
     const pages_array = [];
-
     for(let i = 1; i <= pages; i++){
         pages_array.push(i);
     }
-
-
     const dispatch = useDispatch();
+    const [imgState, setImgState] = useState(false);
     const [msg, setMsg] = useState(null);
     const [flag, setFlag] = useState(false);
     const [posts, setPosts] = useState([]);
@@ -47,10 +45,6 @@ export default function Profile(props){
             setPage(page + 1)
         }
     }
-
-    useEffect(() => {
-        getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?page='+page);
-    }, [flag, user, page]);
 
     function createPost(e){
         e.preventDefault();
@@ -196,6 +190,52 @@ export default function Profile(props){
             }).catch(err => alert(err));
     }
 
+    function swapImgState(){
+        setImgState(true);
+    }
+
+    function setTitle(e){
+        const cont = document.querySelector(".image-name");
+        cont.innerText = `${e.target.files[0].name}`;
+    }
+
+    async function uploadImg(e){
+        e.preventDefault();
+        const file = e.target.elements[0].files[0];
+        const formData = new FormData();
+        formData.append('img', file);
+        const method = user.img?"PUT":"POST";
+        const res = await uploadImgReq(formData, user.token, method, e.target.action);
+        setImgState(false);
+        const cont = document.querySelector(".image-name");
+        cont.innerText = "";
+
+    }
+
+    function uploadImgReq(file, jwt, method, url){
+        const res = fetch(url, 
+            {
+                method: method,
+                headers: {'Authorization': jwt},
+                body: file
+            }
+        ).then(res => res.json())
+        .then(data => {
+            const {user_id, filename} = data[0];
+            dispatch(setUserImgName(`${url}?user_id=${user_id}&filename=${filename}`));
+        }).catch(err => alert("error on servers! try again later..."));
+
+        return res;
+    }
+
+    useEffect(() => {
+        getUserLastPosts(user.token, 'http://127.0.0.1:3001/posts/profile_posts?page='+page);
+        if(user.filename){
+            dispatch(setUserImgName(`http://127.0.0.1:3001/users/image?user_id=${user.id}&filename=${user.filename}`));
+        }
+    }, [flag, user, page]);
+
+
     return (
         <>
         <Header />
@@ -205,8 +245,17 @@ export default function Profile(props){
                     {msg}
                 </div>
                 <div className="user-container">
-                    <div className="img-container">
-                        <img className="user-img" src={pic} alt="profile" />
+                   <div className="img-container">
+                        <img className={!imgState?"user-img":"hidden"} src={user.img?user.img:pic} alt="profile" />
+                         
+                        <form className="form-upload" encType="multpart/form-data" action='http://127.0.0.1:3001/users/image' onSubmit={uploadImg}>
+                            <div onClick={swapImgState} className={!imgState?"upload-container":"hidden"}>
+                               <input required type="file" className="uploaded-img" id="img" name="img" onChange={setTitle} />
+                           </div>
+                           <span className="image-name"></span>
+                           <button className={imgState?"update-bio-btn space":"hidden"} type="submit"><img src={add} alt="check" /></button>
+                        </form>
+ 
                     </div>
                     <div className="user-credentials">
                         <h3 className="user-name">@{user.name}</h3>

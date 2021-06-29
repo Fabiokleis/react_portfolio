@@ -14,6 +14,10 @@ export function setLoginBio(value){
     return {type: 'SET_BIO', payload: value};
 }
 
+export function setUserImgName(value){
+    return {type: 'SET_IMG', payload: value};
+}
+
 export function saveUserForgotPassword(user){
     return {type: 'SAVE_EMAIL', payload: user};
 }
