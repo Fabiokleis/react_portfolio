@@ -3,7 +3,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Summary from '../../components/summary';
 import {useDispatch, useSelector} from 'react-redux';
-import {setLoginBio, setUserImgName} from '../../actions/userActions';
+import {setLoginBio, setUserImgName, setFileName} from '../../actions/userActions';
 import {getTotalCount} from '../../actions/headersActions.js';
 import edit from './edit.svg';
 import del from './x-circle.svg';
@@ -205,7 +205,8 @@ export default function Profile(props){
         const formData = new FormData();
         formData.append('img', file);
         const method = user.img?"PUT":"POST";
-        const res = await uploadImgReq(formData, user.token, method, e.target.action);
+        const url = user.img?`${e.target.action}?filename=${user.filename}`:e.target.action;
+        const res = await uploadImgReq(formData, user.token, method, url);
         setImgState(false);
         const cont = document.querySelector(".image-name");
         cont.innerText = "";
@@ -222,7 +223,8 @@ export default function Profile(props){
         ).then(res => res.json())
         .then(data => {
             const {user_id, filename} = data[0];
-            dispatch(setUserImgName(`${url}?user_id=${user_id}&filename=${filename}`));
+            dispatch(setFileName(filename));
+            dispatch(setUserImgName(`http://127.0.0.1:3001/users/image?user_id=${user_id}&filename=${filename}`));
         }).catch(err => alert("error on servers! try again later..."));
 
         return res;

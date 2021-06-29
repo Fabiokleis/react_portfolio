@@ -1,13 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import {logOutUser} from '../../actions/userActions';
+import {logOutUser, setUserImgName} from '../../actions/userActions';
 import pic from './user.svg';
 
 export default function HeaderLogin(){
     const dispatch = useDispatch();
     const loginState = useSelector(state => state.login);
-    
+    if(loginState.filename) {
+        dispatch(setUserImgName(`http://127.0.0.1:3001/users/image?user_id=${loginState.id}&filename=${loginState.filename}`))
+    }
+
     return (
             <div className="header-login">
                 <div className={loginState?"menu-wrapper":"hidden"}>

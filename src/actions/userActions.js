@@ -18,6 +18,10 @@ export function setUserImgName(value){
     return {type: 'SET_IMG', payload: value};
 }
 
+export function setFileName(value){
+    return {type: 'SET_FILENAME', payload: value};
+}
+
 export function saveUserForgotPassword(user){
     return {type: 'SAVE_EMAIL', payload: user};
 }
