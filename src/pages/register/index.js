@@ -29,10 +29,10 @@ export default function Signup(){
         const data = await createUserRequest({name, email, password}, e.target.action);
         setChecked(e.target.elements[3].checked);
         if(checked && data){
-            SubscribeRequest({email}, 'http://127.0.0.1:3001/users/subscribe_email');
+            SubscribeRequest({email}, 'https://fabiokleis-api.herokuapp.com/subscribe_email');
         }
         if(data){
-            loginUserRequest({email, password}, 'http://127.0.0.1:3001/users/login');
+            loginUserRequest({email, password}, 'https://fabiokleis-api.herokuapp.com/users/login');
         }
     }
 
@@ -49,8 +49,9 @@ export default function Signup(){
                     setTimeout(() => {setMsg(null)}, 4000);
                 }else{
                     dispatch(createUser(data[0]));
+
                     return data[0];
-               }
+                }
             }).catch(err => {
                 setFlag(false);
                 setMsg("Error on servers! try again later!");
@@ -100,7 +101,7 @@ export default function Signup(){
                 </div>
                 <div className="signup-section">
 
-                    <form method="POST" onSubmit={(e) => handlerSub(e)} action="http://127.0.0.1:3001/users" className="signup-form">
+                    <form method="POST" onSubmit={(e) => handlerSub(e)} action="https://fabiokleis-api.herokuapp.com/users" className="signup-form">
                         <label  className="signup-label">Username <span className="star">*</span></label>
                         <input required name="name" id="name" className="signup-input" type="text" ></input>
                         <label  className="signup-label">Email address <span className="star">*</span></label>

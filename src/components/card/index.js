@@ -16,7 +16,7 @@ export default function Cards({page, Component}){
                 .catch(err => alert('Error on servers! try again later.'));
     }
     useEffect(() => {
-        getPosts('http://localhost:3001/posts?page='+page);
+        getPosts('https://fabiokleis-api.herokuapp.com/posts?page='+page);
     }, [page]);
 
     return (
