@@ -5,13 +5,13 @@ export default function Summary({updatePageNumber, pages_array, decrement, incre
 
    return (
         <div className="summary-container">
-            <img className="left-arrow-page" onClick={decrement} src="" alt="<" />
+            <div className="left-arrow-page" onClick={decrement}>{"<"}</div>
             {pages_array.map((p, index) => (
                 <div onClick={() => updatePageNumber(p)} className="page-number" key={index}>
                     {p}
                 </div>
              ))}
-             <img className="right-arrow-page" onClick={increment} src="" alt=">" />
+             <div className="right-arrow-page" onClick={increment} >{">"}</div>
        </div> 
     );
 }

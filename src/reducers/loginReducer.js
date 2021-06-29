@@ -10,6 +10,12 @@ export default function loginReducer(state=null, action){
         case 'SET_BIO':
             state.bio = action.payload[0];
             return state;
+        case 'SET_IMG':
+            state.img = action.payload;
+            return state;
+        case 'SET_FILENAME':
+            state.filename = action.payload;
+            return state;
         default:
             return state;
     }

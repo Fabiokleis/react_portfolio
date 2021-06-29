@@ -20,7 +20,7 @@ export default function WelcomeSection(props){
                         <li><span>Javascript</span></li>
                         <li><span>Nodejs</span></li>
                         <li><span>Reactjs</span></li>
-                        <li><span>Full-stack</span></li>
+                        <li><span>Postgres</span></li>
                     </ul>
                 </div>
  

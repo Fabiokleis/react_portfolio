@@ -3,12 +3,12 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Summary from '../../components/summary';
 import {useDispatch, useSelector} from 'react-redux';
-import {setLoginBio} from '../../actions/userActions';
+import {setLoginBio, setUserImgName, setFileName} from '../../actions/userActions';
 import {getTotalCount} from '../../actions/headersActions.js';
 import edit from './edit.svg';
 import del from './x-circle.svg';
 import add from './check.svg';
-import pic from './image.svg';
+import pic from './upload.svg';
 import './index.css';
 
 export default function Profile(props){ 
@@ -17,13 +17,11 @@ export default function Profile(props){
     const pages = Math.ceil(total/5);    
     const [page, setPage] = useState(1);
     const pages_array = [];
-
     for(let i = 1; i <= pages; i++){
         pages_array.push(i);
     }
-
-
     const dispatch = useDispatch();
+    const [imgState, setImgState] = useState(false);
     const [msg, setMsg] = useState(null);
     const [flag, setFlag] = useState(false);
     const [posts, setPosts] = useState([]);
@@ -197,6 +195,52 @@ export default function Profile(props){
             }).catch(err => alert("error on servers! try again later..."));
     }
 
+    function swapImgState(){
+        setImgState(true);
+    }
+
+    function setTitle(e){
+        const cont = document.querySelector(".image-name");
+        cont.innerText = `${e.target.files[0].name}`;
+    }
+
+    async function uploadImg(e){
+        e.preventDefault();
+        const file = e.target.elements[0].files[0];
+        const formData = new FormData();
+        formData.append('img', file);
+        const method = user.img?"PUT":"POST";
+        const url = user.img?`${e.target.action}?filename=${user.filename}`:e.target.action;
+        uploadImgReq(formData, user.token, method, url);
+        setImgState(false);
+        const cont = document.querySelector(".image-name");
+        cont.innerText = "";
+    }
+
+    function uploadImgReq(file, jwt, method, url){
+        fetch(url, 
+            {
+                method: method,
+                headers: {'Authorization': jwt},
+                body: file
+            }
+        ).then(res => res.json())
+        .then(data => {
+            const {user_id, filename} = data[0];
+            dispatch(setFileName(filename));
+            dispatch(setUserImgName(`https://fabiokleis-api.herokuapp.com/users/image?user_id=${user_id}&filename=${filename}`));
+        }).catch(err => alert("error on servers! try again later..."));
+
+    }
+
+    useEffect(() => {
+        getUserLastPosts(user.token, 'https://fabiokleis-api.herokuapp.com/posts/profile_posts?page='+page);
+        if(user.filename){
+            dispatch(setUserImgName(`https://fabiokleis-api.herokuapp.com/users/image?user_id=${user.id}&filename=${user.filename}`));
+        }
+    }, [flag, user, page]);
+
+
     return (
         <>
         <Header />
@@ -206,8 +250,17 @@ export default function Profile(props){
                     {msg}
                 </div>
                 <div className="user-container">
-                    <div className="img-container">
-                        <img className="user-img" src={pic} alt="profile" />
+                   <div className="img-container">
+                        <img className={!imgState?"user-img":"hidden"} src={user.img?user.img:pic} alt="profile" />
+                         
+                        <form className="form-upload" encType="multpart/form-data" action='https://fabiokleis-api.herokuapp.com/users/image' onSubmit={uploadImg}>
+                            <div onClick={swapImgState} className={!imgState?"upload-container":"hidden"}>
+                               <input required type="file" className="uploaded-img" id="img" name="img" onChange={setTitle} />
+                           </div>
+                           <span className="image-name"></span>
+                           <button className={imgState?"update-bio-btn space":"hidden"} type="submit"><img src={add} alt="check" /></button>
+                        </form>
+ 
                     </div>
                     <div className="user-credentials">
                         <h3 className="user-name">@{user.name}</h3>
@@ -221,7 +274,7 @@ export default function Profile(props){
                                  </div>
                             </form>
                             <div className={!bioState?"bio-container":"hidden"}>
-                                <textarea className="bio-textarea" value={createBio?createBio:user.bio} disabled />
+                                <textarea className="bio-textarea" value={createBio?createBio:user.bio} readOnly />
                             </div>
                             <button className={!bioState?"update-bio-btn":"hidden"} onClick={swapBioState}>
                                 <img src={edit} alt="edit bio" />
@@ -287,7 +340,7 @@ export default function Profile(props){
 
             </div>
             <div className="summary-wrap">
-                <Summary updatePageNumber={updatePageNumber} pages_array={pages_array} decrement={decrement} increment={increment} />
+               {total > 0?<Summary updatePageNumber={updatePageNumber} pages_array={pages_array} decrement={decrement} increment={increment} />:null}
             </div>
         </main>
         <Footer />
