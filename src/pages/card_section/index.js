@@ -12,7 +12,6 @@ export default function CardSection(props){
     const pages = Math.ceil(total/5);
     const [page, setPage] = useState(1);
     const pages_array = [];
-
     for(let i = 1; i <= pages; i++){
         pages_array.push(i);
     }
@@ -41,7 +40,7 @@ export default function CardSection(props){
                 <div className="posts-section">
                    <div className="current-page">Page: {page}</div>
                    <Cards page={page} Component={Posts} />
-                   <Summary updatePageNumber={updatePageNumber} pages_array={pages_array} decrement={decrement} increment={increment} />
+                   {total > 0 ? <Summary updatePageNumber={updatePageNumber} pages_array={pages_array} decrement={decrement} increment={increment} />:null}
                </div>
             </main>
             <Footer />

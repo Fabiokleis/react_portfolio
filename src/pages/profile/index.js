@@ -335,7 +335,7 @@ export default function Profile(props){
 
             </div>
             <div className="summary-wrap">
-                <Summary updatePageNumber={updatePageNumber} pages_array={pages_array} decrement={decrement} increment={increment} />
+               {total > 0?<Summary updatePageNumber={updatePageNumber} pages_array={pages_array} decrement={decrement} increment={increment} />:null}
             </div>
         </main>
         <Footer />
