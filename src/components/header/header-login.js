@@ -9,7 +9,7 @@ export default function HeaderLogin(){
     const dispatch = useDispatch();
     const loginState = useSelector(state => state.login);
     if(loginState.filename) {
-        dispatch(setUserImgName(`http://127.0.0.1:3001/users/image?user_id=${loginState.id}&filename=${loginState.filename}`))
+        dispatch(setUserImgName(`https://fabiokleis-api.herokuapp.com/users/image?user_id=${loginState.id}&filename=${loginState.filename}`))
     }
 
     return (
