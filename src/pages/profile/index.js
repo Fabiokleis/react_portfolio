@@ -206,15 +206,14 @@ export default function Profile(props){
         formData.append('img', file);
         const method = user.img?"PUT":"POST";
         const url = user.img?`${e.target.action}?filename=${user.filename}`:e.target.action;
-        const res = await uploadImgReq(formData, user.token, method, url);
+        uploadImgReq(formData, user.token, method, url);
         setImgState(false);
         const cont = document.querySelector(".image-name");
         cont.innerText = "";
-
     }
 
     function uploadImgReq(file, jwt, method, url){
-        const res = fetch(url, 
+        fetch(url, 
             {
                 method: method,
                 headers: {'Authorization': jwt},
@@ -227,7 +226,6 @@ export default function Profile(props){
             dispatch(setUserImgName(`http://127.0.0.1:3001/users/image?user_id=${user_id}&filename=${filename}`));
         }).catch(err => alert("error on servers! try again later..."));
 
-        return res;
     }
 
     useEffect(() => {
@@ -271,7 +269,7 @@ export default function Profile(props){
                                  </div>
                             </form>
                             <div className={!bioState?"bio-container":"hidden"}>
-                                <textarea className="bio-textarea" value={createBio?createBio:user.bio} disabled />
+                                <textarea className="bio-textarea" value={createBio?createBio:user.bio} readOnly />
                             </div>
                             <button className={!bioState?"update-bio-btn":"hidden"} onClick={swapBioState}>
                                 <img src={edit} alt="edit bio" />
