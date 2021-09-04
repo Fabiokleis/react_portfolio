@@ -28,7 +28,7 @@ export default function Footer(props){
                     </a>
                 </li>
                 <li className="footer-li">
-                    <a href="https://linkedin.com/fabio-kleis" target="_blank" rel="noreferrer">
+                    <a href="https://linkedin.com/in/fabio-kleis" target="_blank" rel="noreferrer">
                         <img src={linkd} alt="linkedin" title="linkedin/fabio-kleis" />
                     </a>
                 </li>
