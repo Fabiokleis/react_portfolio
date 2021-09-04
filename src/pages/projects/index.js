@@ -27,6 +27,7 @@ export default function Projects(props){
                             </p>
                         </div>
                     </div>
+
                      <div className="project-container">
                         <h3 className="project-title">O jogo da vida</h3>
                         
@@ -36,9 +37,9 @@ export default function Projects(props){
                             <p>
                                 Uma implementação em Javascript e em linguagem C do jogo da vida de John Conway
                                 Visite os repositórios no github:
-                                gof - <a href="https://github.com/Fabiokleis/gof_js">versão javascript</a>
-                                gof - <a href="https://github.com/Fabiokleis/gof">versão em C</a>
-                            <p>
+                                gof - <a target="_blank" href="https://github.com/Fabiokleis/gof_js">versão javascript</a>
+                                gof - <a target="_blank" href="https://github.com/Fabiokleis/gof">versão em C</a>
+                            </p>
                         </div>
                     </div>
                     
