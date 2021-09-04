@@ -2,13 +2,13 @@ import React from 'react';
 import git from './github.svg';
 import insta from './instagram.svg';
 import tt from './twitter.svg';
+import linkd from './linkedin.svg';
 import './index.css';
 
 export default function Footer(props){
 
     return (
-        
-        
+                
         <footer className="footer">
             
             <ul className="footer-links">
@@ -27,6 +27,12 @@ export default function Footer(props){
                         <img src={insta} alt="instagram" title="instagram/fabiokleis" />
                     </a>
                 </li>
+                <li className="footer-li">
+                    <a href="https://linkedin.com/fabio-kleis" target="_blank" rel="noreferrer">
+                        <img src={linkd} alt="linkedin" title="linkedin/fabio-kleis" />
+                    </a>
+                </li>
+ 
             </ul>
 
         </footer>
