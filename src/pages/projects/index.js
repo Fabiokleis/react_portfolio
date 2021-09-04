@@ -20,7 +20,7 @@ export default function Projects(props){
                         <div className="description-container">
                             <p>Project description</p>
                             <p>O podcast o pior da história é um podcast que está em todas as redes
-                            e agora na sua própria plataforma <a href="https://o-pior-da-historia.web.app/">o-pior-da-historia</a>.
+                            e agora na sua própria plataforma <a target="_blank" href="https://o-pior-da-historia.web.app/">o-pior-da-historia</a>.
                             É um projeto simples feito em html/css e Javascript, utilizando Firebase como storage de audio etc.
                             </p>
                         </div>
