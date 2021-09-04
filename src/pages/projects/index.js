@@ -46,12 +46,12 @@ export default function Projects(props){
                       <div className="project-container">
                         <h3 className="project-title">Jogo da memória</h3>
                         
-                        <img className="project-view" alt="projectview" src={gof}></img>
+                        <img className="project-view" alt="projectview" src={gm}></img>
                         <div className="description-container">
                             <p>Memory game!</p>
                             <p>
                                 Jogo da memória feito em react, apenas um projeto iniciante.
-                                veja o repositório no github <a target="_blank" href="https://github.com/Fabiokleis/react_memory_game">react_memory_game</a>
+                                Visite o repositório no github <a target="_blank" href="https://github.com/Fabiokleis/react_memory_game">react_memory_game</a>
                             </p>
                         </div>
                     </div>
