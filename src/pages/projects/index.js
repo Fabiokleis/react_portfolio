@@ -51,7 +51,7 @@ export default function Projects(props){
                             <p>Memory game!</p>
                             <p>
                                 Jogo da memória feito em react, apenas um projeto iniciante.
-                                veja o repositório no github <a target="_blank" href="https://github.com/Fabiokleis/react_memory_game">react_memory_game</a>
+                                Visite o repositório no github <a target="_blank" href="https://github.com/Fabiokleis/react_memory_game">react_memory_game</a>
                             </p>
                         </div>
                     </div>
