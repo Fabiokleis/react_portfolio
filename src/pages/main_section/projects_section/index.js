@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import './index.css';
 import img from '../o_pior.png';
 import memory from '../gameOver.png';
+import gof from '../gof.png';
 import doubleRight from '../chevrons-right.svg';
 import doubleLeft from '../chevrons-left.svg';
 
@@ -40,7 +41,7 @@ export default function ProjectsSection(props){
                 
                 <div className="projects-card">
                     
-                    <img className="projects-img" src={memory} alt="project-overview" width={img_width}/>
+                    <img className="projects-img" src={gof} alt="project-overview" width={img_width}/>
 
                 </div>
                 
