@@ -13,7 +13,7 @@ export default function Projects(props){
             <Header />
             <main className="section-container">
                 <h1 className="title-center">projects section</h1>    
-                <div className="projects-section">
+                <div className="projects-section_s">
                                 
                     <div className="project-container">
                         <h3 className="project-title">O pior da história</h3>
