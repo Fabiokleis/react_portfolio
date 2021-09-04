@@ -36,9 +36,9 @@ export default function Projects(props){
                             <p>Game of life!</p>
                             <p>
                                 Uma implementação em Javascript e em linguagem C do jogo da vida de John Conway
-                                Visite os repositórios no github:
-                                gof - <a target="_blank" href="https://github.com/Fabiokleis/gof_js">versão javascript</a>
-                                gof - <a target="_blank" href="https://github.com/Fabiokleis/gof">versão em C</a>
+                                <p>Visite os repositórios no github:</p>
+                                <p>gof - <a target="_blank" href="https://github.com/Fabiokleis/gof_js">versão javascript</a></p>
+                                <p>gof - <a target="_blank" href="https://github.com/Fabiokleis/gof">versão em C</a></p>
                             </p>
                         </div>
                     </div>
