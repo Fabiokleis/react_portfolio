@@ -4,6 +4,7 @@ import Footer from '../../components/footer';
 import './index.css';
 import Img from './o_pior.png';
 import gof from './gof.png';
+import gm from './gameOver.png';
 
 export default function Projects(props){
 
@@ -36,9 +37,21 @@ export default function Projects(props){
                             <p>Game of life!</p>
                             <p>
                                 Uma implementação em Javascript e em linguagem C do jogo da vida de John Conway
-                                Visite os repositórios no github:
-                                gof - <a target="_blank" href="https://github.com/Fabiokleis/gof_js">versão javascript</a>
-                                gof - <a target="_blank" href="https://github.com/Fabiokleis/gof">versão em C</a>
+                                <p>Visite os repositórios no github:</p>
+                                <p>gof - <a target="_blank" href="https://github.com/Fabiokleis/gof_js">versão javascript</a></p>
+                                <p>gof - <a target="_blank" href="https://github.com/Fabiokleis/gof">versão em C</a></p>
+                            </p>
+                        </div>
+                    </div>
+                      <div className="project-container">
+                        <h3 className="project-title">Jogo da memória</h3>
+                        
+                        <img className="project-view" alt="projectview" src={gof}></img>
+                        <div className="description-container">
+                            <p>Memory game!</p>
+                            <p>
+                                Jogo da memória feito em react, apenas um projeto iniciante.
+                                veja o repositório no github <a target="_blank" href="https://github.com/Fabiokleis/react_memory_game">react_memory_game</a>
                             </p>
                         </div>
                     </div>
