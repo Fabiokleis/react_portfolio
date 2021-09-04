@@ -3,6 +3,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import './index.css';
 import Img from './o_pior.png';
+import gof from './gof.png';
 
 export default function Projects(props){
 
@@ -18,11 +19,26 @@ export default function Projects(props){
                         
                         <img className="project-view" alt="projectview" src={Img}></img>
                         <div className="description-container">
-                            <p>Project description</p>
+                            <p>O pior da história!</p>
                             <p>O podcast o pior da história é um podcast que está em todas as redes
-                            e agora na sua própria plataforma <a href="https://o-pior-da-historia.web.app/">o-pior-da-historia</a>.
+                            e agora na sua própria plataforma <a target="_blank" href="https://o-pior-da-historia.web.app/">o-pior-da-historia</a>.
                             É um projeto simples feito em html/css e Javascript, utilizando Firebase como storage de audio etc.
+                            Repositório no <a target="_blank" href="https://github.com/Fabiokleis/o-pior-da-historia">Github</a>
                             </p>
+                        </div>
+                    </div>
+                     <div className="project-container">
+                        <h3 className="project-title">O jogo da vida</h3>
+                        
+                        <img className="project-view" alt="projectview" src={gof}></img>
+                        <div className="description-container">
+                            <p>Game of life!</p>
+                            <p>
+                                Uma implementação em Javascript e em linguagem C do jogo da vida de John Conway
+                                Visite os repositórios no github:
+                                gof - <a href="https://github.com/Fabiokleis/gof_js">versão javascript</a>
+                                gof - <a href="https://github.com/Fabiokleis/gof">versão em C</a>
+                            <p>
                         </div>
                     </div>
                     
