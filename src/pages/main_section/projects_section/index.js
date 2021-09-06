@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {Link} from 'react-router-dom';
 import './index.css';
 import img from '../o_pior.png';
 import memory from '../gameOver.png';
@@ -8,6 +9,7 @@ import doubleLeft from '../chevrons-left.svg';
 
 
 export default function ProjectsSection(props){
+
     const maxWidth = window.innerWidth;
     const [value, setValue] = useState(-400);
     const img_width = (maxWidth < 1300)?"500px":"700px";
@@ -31,26 +33,28 @@ export default function ProjectsSection(props){
             <div className="arrow-container-left" onClick={toLeft} >
                 <img className="arrow-left" src={doubleLeft} alt="preview"/>
             </div>
-            <div className="projects-section" style={{marginLeft: `${value}px` , marginRight: `${value}px`}}>
-                
-                <div className="projects-card">
-                    
-                    <img className="projects-img" src={img} width={img_width} alt="project-overview" />
+                <Link to="/projects">
 
-                </div>
-                
-                <div className="projects-card">
+                    <div className="projects-section" style={{marginLeft: `${value}px` , marginRight: `${value}px`}}>
+                        <div className="projects-card">
                     
-                    <img className="projects-img" src={gof} alt="project-overview" width={img_width}/>
+                            <img className="projects-img" src={img} width={img_width} alt="project-overview" />
 
-                </div>
-                
-                <div className="projects-card">
+                        </div>
+                        <div className="projects-card">
                     
-                    <img className="projects-img" src={memory} alt="project-overview" width={img_width} />
+                            <img className="projects-img" src={gof} alt="project-overview" width={img_width}/>
 
-                </div>
-            </div>
+                        </div>
+                        <div className="projects-card">
+                    
+                            <img className="projects-img" src={memory} alt="project-overview" width={img_width} />
+
+                        </div>
+                
+                    </div> 
+                </Link>
+
             <div className="arrow-container-right" onClick={toRight}>
                 <img className="arrow-right" src={doubleRight} alt="next" />
             </div>
