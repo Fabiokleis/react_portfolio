@@ -61,11 +61,8 @@ function App() {
                 <Route path="/posts">
                     <CardSection />
                 </Route>
-
+                
                 <Route exact path="/projects">
-                    <Projects />
-                </Route>
-                <Route path="/projects/:id">
                     <Projects />
                 </Route>
 
